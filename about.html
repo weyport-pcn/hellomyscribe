@@ -8,12 +8,18 @@
 <meta property="og:title" content="About | MyScribe">
 <meta property="og:description" content="MyScribe started on the Isle of Portland in Dorset. Built in a neighbourhood, for neighbours.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0B6E69">
+<meta name="theme-color" content="#1E1F22">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap">
 <link rel="stylesheet" href="/styles.css">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-2xMqHdNtrrsRjwaFG2nD4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 <style>
 .team-lead { max-width: 60ch; font-size: 1.15rem; margin: 0 0 2rem; }
 .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
@@ -41,7 +47,8 @@
 <div>
 <h1 class="h1">Built in a neighbourhood, for neighbours.</h1>
 <p class="soft" style="font-size:20px;margin-bottom:16px">MyScribe started on the Isle of Portland in Dorset, in conversations with people in libraries, cafés and pubs. People knew good help existed. They just couldn't hold on to what they'd been told.</p>
-<p class="soft" style="font-size:20px">So we built something for the moment it matters most: the conversation itself.</p>
+<p class="soft" style="font-size:20px;margin-bottom:16px">So we built something for the moment it matters most: the conversation itself.</p>
+<p class="soft" style="font-size:20px">Most scribes are built for the institution. MyScribe is built for you. Your conversation, your record, your memory. We're starting in health, and we won't stop there, because remembering what was said shouldn't depend on who you were talking to.</p>
 </div>
 <div class="founder side">
 <img class="founder-photo" src="/mark-winterburn.jpg" alt="Mark Winterburn" width="120" height="120">
@@ -67,7 +74,7 @@
 <div class="wrap split">
 <div>
 <h2 class="h2" style="margin-bottom:16px">Get in touch</h2>
-<p class="soft" style="margin-bottom:8px">Patients, clinicians, commissioners, partners and investors.</p>
+<p class="soft" style="margin-bottom:8px">Patients, clinicians, commissioners, partners, investors, and anyone else with a conversation that matters.</p>
 <p><a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a></p>
 </div>
 <form class="form" name="contact" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
@@ -81,6 +88,7 @@
 <option>A clinician or practice</option>
 <option>A commissioner or ICB</option>
 <option>A partner or investor</option>
+<option>Something else</option>
 </select></div>
 <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" rows="5" required></textarea></div>
 <div><button class="btn btn-primary" type="submit">Send message</button></div>
