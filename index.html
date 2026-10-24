@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MyScribe | For every conversation that matters</title>
-<meta name="description" content="MyScribe records the conversations that matter, with permission, and writes down what was said, so you can go back to it. Starting with your health appointments.">
+<meta name="description" content="Was it two weeks, or ten days? With permission, MyScribe writes down what was said and keeps it for you. Starting with your health appointments.">
 <meta property="og:title" content="MyScribe | For every conversation that matters">
 <meta property="og:description" content="MyScribe records the conversations that matter on your phone, with permission, and writes the story of what happened in plain words. Ask it anything, and it takes you to the moment it was said.">
 <meta property="og:type" content="website">
@@ -142,6 +142,10 @@
 .org-line a { font-weight: 600; }
 /* Eyebrow as a coral pill, so mobile gets colour above the fold */
 .hero .eyebrow { display: inline-block; background: var(--coral); color: var(--ink); border-radius: 999px; padding: 6px 16px; font-size: 15.5px; }
+/* Mobile: one waitlist button in the hero is enough, so hide the header one */
+@media (max-width: 640px) {
+  .site-header .nav .btn { display: none; }
+}
 </style>
 </head>
 <body>
@@ -164,7 +168,7 @@
 <div class="hero-text">
 <p class="eyebrow">For every conversation that matters</p>
 <h1 class="h1">Was it two weeks, <em>or ten days?</em></h1>
-<p class="lead">MyScribe records the conversations that matter, with permission, and writes down what was said, so you can go back to it. Starting with your health appointments.</p>
+<p class="lead">It made sense at the time. MyScribe writes it all down, with permission, so you can go back to it. Starting with your health appointments.</p>
 <div class="actions">
 <a class="btn btn-primary" href="#waitlist">Join the first 108</a>
 <a class="btn btn-outline" href="/how-it-works">See how it works</a>
