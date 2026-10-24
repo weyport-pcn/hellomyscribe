@@ -8,152 +8,251 @@
 <meta property="og:title" content="Trust | MyScribe">
 <meta property="og:description" content="How MyScribe looks after your conversations: where your words go, who helps us run MyScribe, what we never do, and the checks we complete before launch.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0B6E69">
+<meta name="theme-color" content="#1E1F22">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap">
-<link rel="stylesheet" href="/styles.css">
 <style>
-.section-lead { max-width: 56ch; margin: -0.25rem 0 2rem; font-size: 1.15rem; }
-.updated { font-size: .95rem; opacity: .75; margin-top: 1rem; }
+/* MyScribe palette: charcoal and pastels (21 Oct 2026).
+   coral = recording, sage = summary, mist = Ask Your Conversation,
+   lilac = My conversations, butter = unclear or highlighted words. */
+:root{
+  --ink:#1E1F22; --ink-soft:#45474C; --muted:#76787D;
+  --paper:#FAFAF8; --line:#E6E6E2; --neutral:#F0F0ED;
+  --coral:#F6D9CF; --rec:#D9533F;
+  --sage:#DCEBD3; --mist:#D6E6EE; --lilac:#E6DDF3; --butter:#F6EBB5;
+  --font:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px; --gutter:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+p{margin:0}
+a{color:inherit}
+svg{display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.soft{color:var(--ink-soft)}
+.text-link,.soft a,td a{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:#C9C9C4}
+.text-link:hover,.soft a:hover{text-decoration-color:var(--ink)}
+
+/* Header (same as home) */
+.site-header{padding:18px 0}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.5rem;letter-spacing:-.02em;text-decoration:none}
+.logo-mark{width:46px;height:30px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary span,.menu summary span::before,.menu summary span::after{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;position:relative;content:""}
+.menu summary span::before{position:absolute;top:-7px}
+.menu summary span::after{position:absolute;top:7px}
+.menu[open] summary{background:var(--neutral)}
+.menu-panel{position:absolute;right:0;top:52px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;min-width:220px;box-shadow:0 12px 30px rgba(0,0,0,.08);z-index:5}
+.menu-panel a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:500}
+.menu-panel a:hover{background:var(--neutral)}
+.menu-panel a[aria-current]{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.nav{display:none}.menu{display:block}}
+
+/* Intro */
+.intro{padding:40px 0 64px;max-width:46rem}
+.kicker{font-size:.95rem;font-weight:600;color:var(--ink-soft);margin-bottom:16px}
+.h1{font-size:clamp(2.4rem,5.8vw,4rem);line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 22px;text-wrap:balance}
+.lead{font-size:1.2rem;line-height:1.55;color:var(--ink-soft);max-width:52ch}
+.updated{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.92rem;color:var(--ink-soft);background:var(--neutral);border-radius:999px;padding:8px 16px}
+.updated::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+.jump{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.95rem}
+.jump a{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:#C9C9C4}
+@media (max-width:640px){.intro{padding:16px 0 48px}.lead{font-size:1.1rem}.updated{border-radius:16px}}
+
+.section{padding:80px 0;scroll-margin-top:12px}
+@media (max-width:640px){.section{padding:60px 0}}
+.band{background:var(--neutral)}
+.h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:0 0 16px;text-wrap:balance}
+.section-lead{max-width:56ch;font-size:1.12rem;margin-bottom:32px}
+.note{max-width:62ch;margin-top:28px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.band .note{border-color:transparent}
 
 /* Promises */
-.promise h3 { display: flex; align-items: center; gap: .6rem; }
-.promise svg { flex: none; width: 24px; height: 24px; color: var(--accent, #0B6E69); }
+.promises{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.promises{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.promises{grid-template-columns:1fr}}
+.promise{background:#fff;border-radius:22px;padding:26px}
+.promise svg{width:26px;height:26px;margin-bottom:16px}
+.promise h3{font-size:1.2rem;letter-spacing:-.015em;margin:0 0 8px}
 
 /* Data flow */
-.flow { list-style: none; margin: 0; padding: 0; counter-reset: flow; display: grid; gap: 0; max-width: 46rem; }
-.flow li { counter-increment: flow; position: relative; padding: 0 0 1.75rem 3.4rem; }
-.flow li::before { content: counter(flow); position: absolute; left: 0; top: 0; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--accent, #0B6E69); color: #fff; font-family: var(--display, inherit); font-weight: 800; display: flex; align-items: center; justify-content: center; }
-.flow li::after { content: ""; position: absolute; left: 1.05rem; top: 2.4rem; bottom: .2rem; width: 2px; background: rgba(11,110,105,.25); }
-.flow li:last-child { padding-bottom: 0; }
-.flow li:last-child::after { display: none; }
-.flow h3 { margin: .2rem 0 .35rem; }
-.flow p { margin: 0; max-width: 60ch; }
-.flow .where { display: inline-block; margin-top: .5rem; font-size: .85rem; font-weight: 600; color: var(--accent, #0B6E69); background: rgba(11,110,105,.1); border-radius: 999px; padding: .15rem .65rem; }
-.flow .gone::before { background: var(--muted, #6B7774); }
-.flow-note { max-width: 60ch; margin-top: 2rem; padding: 1rem 1.25rem; border-left: 3px solid var(--accent, #0B6E69); background: rgba(11,110,105,.06); border-radius: 0 12px 12px 0; }
+.flow{list-style:none;margin:0;padding:0;max-width:50rem}
+.flow li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:0 20px;padding-bottom:30px}
+.flow li:last-child{padding-bottom:0}
+.flow li::after{content:"";position:absolute;left:21px;top:48px;bottom:4px;width:2px;background:var(--line)}
+.flow li:last-child::after{display:none}
+.dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:var(--neutral)}
+.flow h3{font-size:1.25rem;letter-spacing:-.015em;margin:8px 0 6px}
+.flow p{max-width:60ch}
+.where{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.85rem;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--neutral)}
+.c-coral{background:var(--coral)} .c-sage{background:var(--sage)} .c-lilac{background:var(--lilac)} .c-mist{background:var(--mist)}
+.gone .dot{background:#fff;border:2px dashed #BDBDB7;color:var(--muted)}
+.gone .where{background:#fff;border:1.5px dashed #BDBDB7;color:var(--muted)}
 
 /* Tables */
-.table-wrap { overflow-x: auto; }
-.ttable { width: 100%; border-collapse: collapse; font-size: 1rem; }
-.ttable th, .ttable td { text-align: left; vertical-align: top; padding: .85rem .9rem .85rem 0; border-top: 1px solid rgba(11,110,105,.2); }
-.ttable thead th { border-top: 0; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; opacity: .7; padding-top: 0; }
-.ttable tbody tr:last-child td, .ttable tbody tr:last-child th { border-bottom: 1px solid rgba(11,110,105,.2); }
-.ttable tbody th { font-weight: 600; }
-.ttable small { display: block; opacity: .75; margin-top: .2rem; }
-@media (max-width: 680px) {
-  .ttable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .ttable, .ttable tbody, .ttable tr, .ttable th, .ttable td { display: block; width: 100%; }
-  .ttable tr { border-top: 1px solid rgba(11,110,105,.2); padding: .9rem 0; }
-  .ttable tbody tr:last-child { border-bottom: 1px solid rgba(11,110,105,.2); }
-  .ttable th, .ttable td, .ttable tbody tr:last-child td, .ttable tbody tr:last-child th { border: 0; padding: .15rem 0; }
-  .ttable td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; opacity: .7; }
+.table-wrap{overflow-x:auto;background:#fff;border-radius:22px;padding:8px 24px}
+.ttable{width:100%;border-collapse:collapse;font-size:1rem}
+.ttable th,.ttable td{text-align:left;vertical-align:top;padding:16px 16px 16px 0;border-top:1px solid var(--line)}
+.ttable thead th{border-top:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:14px;padding-bottom:10px}
+.ttable tbody th{font-weight:700}
+.ttable small{display:block;font-weight:500;color:var(--ink-soft);margin-top:2px}
+@media (max-width:680px){
+  .table-wrap{padding:4px 20px}
+  .ttable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ttable,.ttable tbody,.ttable tr,.ttable th,.ttable td{display:block;width:100%}
+  .ttable tr{border-top:1px solid var(--line);padding:16px 0}
+  .ttable tbody tr:first-child{border-top:0}
+  .ttable th,.ttable td{border:0;padding:3px 0}
+  .ttable td[data-label]::before{content:attr(data-label) ": ";font-weight:600;color:var(--muted)}
 }
 
-/* Status chips */
-.status { display: inline-block; font-size: .85rem; font-weight: 600; border-radius: 999px; padding: .15rem .65rem; white-space: nowrap; }
-.status-done { background: rgba(11,110,105,.14); color: var(--accent, #0B6E69); }
-.status-launch { background: var(--notice); color: #7A4D0D; }
-.status-nhs { background: var(--mist, #E9EFEE); color: var(--ink, #12201E); }
+.status{display:inline-block;font-size:.85rem;font-weight:600;border-radius:999px;padding:4px 12px;white-space:nowrap}
+.s-done{background:var(--sage)}
+.s-launch{background:var(--butter)}
+.s-nhs{background:var(--neutral)}
 
 /* Never list */
-.never { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; max-width: 46rem; }
-.never li { display: flex; gap: .7rem; align-items: flex-start; font-size: 1.08rem; }
-.never svg { flex: none; width: 22px; height: 22px; margin-top: .15rem; color: var(--alert); }
+.never{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:60rem}
+@media (max-width:760px){.never{grid-template-columns:1fr}}
+.never li{display:flex;gap:14px;align-items:flex-start;font-size:1.05rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.never .x{flex:none;width:28px;height:28px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.never svg{width:14px;height:14px;color:var(--rec)}
 
-.faq { max-width: 46rem; }
-.faq details { border-top: 1px solid rgba(11,110,105,.2); padding: 1rem 0; }
-.faq details:last-child { border-bottom: 1px solid rgba(11,110,105,.2); }
-.faq summary { cursor: pointer; font-weight: 600; font-size: 1.12rem; list-style-position: outside; }
-.faq summary:focus-visible { outline: 3px solid #0B6E69; outline-offset: 3px; }
-.faq details p { margin: .75rem 0 0; max-width: 62ch; }
+/* Control */
+.control{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:960px){.control{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.control{grid-template-columns:1fr}}
+.ctl{background:#fff;border-radius:22px;padding:26px}
+.ctl h3{font-size:1.2rem;letter-spacing:-.015em;margin:0 0 8px}
 
-.footer-next { margin: .25rem 0 1rem; opacity: .8; }
+.faq{max-width:46rem}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.12rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;font-size:1.4rem;line-height:1;color:var(--muted)}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{margin-top:10px;max-width:62ch}
+
+.site-footer{padding:56px 0 40px;border-top:1px solid var(--line);font-size:.95rem}
+.footer-tag{font-weight:700;font-size:1.2rem;letter-spacing:-.015em}
+.footer-next{color:var(--ink-soft);margin:4px 0 16px}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-soft);font-size:.9rem}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/"><svg class="logo-mark" viewBox="8 12 50 33" fill="none" aria-hidden="true" focusable="false"><defs><mask id="lm-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><g transform="translate(32.5 40) rotate(-45) scale(1.75)"><path d="M2.6 0H8.4" stroke="#000" stroke-width="1.1" stroke-linecap="round"/><circle cx="9.4" cy="0" r="1.05" fill="#000"/></g></mask></defs><path class="lm-line lm-l1" pathLength="1" d="M13 23H36" stroke="currentColor" stroke-width="6.4" stroke-linecap="round"/><path class="lm-line lm-l2" pathLength="1" d="M13 40H29" stroke="currentColor" stroke-width="6.4" stroke-linecap="round"/><g class="lm-nib" mask="url(#lm-cut)"><path transform="translate(32.5 40) rotate(-45) scale(1.75)" d="M0 0L13-4.3Q17 0 13 4.3Z" fill="currentColor"/></g></svg>MyScribe</a>
+<a class="logo" href="/"><svg class="logo-mark" viewBox="8 12 50 33" fill="none" aria-hidden="true" focusable="false"><defs><mask id="lm-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><g transform="translate(32.5 40) rotate(-45) scale(1.75)"><path d="M2.6 0H8.4" stroke="#000" stroke-width="1.1" stroke-linecap="round"/><circle cx="9.4" cy="0" r="1.05" fill="#000"/></g></mask></defs><path d="M13 23H36" stroke="currentColor" stroke-width="6.4" stroke-linecap="round"/><path d="M13 40H29" stroke="currentColor" stroke-width="6.4" stroke-linecap="round"/><g mask="url(#lm-cut)"><path transform="translate(32.5 40) rotate(-45) scale(1.75)" d="M0 0L13-4.3Q17 0 13 4.3Z" fill="currentColor"/></g></svg>MyScribe</a>
 <nav class="nav" aria-label="Main">
 <a href="/how-it-works">How it works</a>
 <a href="/organisations">For organisations</a>
 <a href="/about">About</a>
-<a class="btn btn-primary" href="/#waitlist">Join the waitlist</a>
 </nav>
+<details class="menu">
+<summary aria-label="Menu"><span></span></summary>
+<div class="menu-panel">
+<a href="/how-it-works">How it works</a>
+<a href="/organisations">For organisations</a>
+<a href="/about">About</a>
+<a href="/trust" aria-current="page">Trust</a>
+</div>
+</details>
 </div>
 </header>
 
 <main id="main">
 <div class="wrap">
-<section class="hero">
-<div class="hero-text">
-<p class="eyebrow">Trust</p>
+<section class="intro">
+<p class="kicker">Trust</p>
 <h1 class="h1">Your conversation, looked after.</h1>
 <p class="lead">It was your conversation, so it's your record. This page sets out, in plain words, where your conversation goes, who helps us run MyScribe, what we will never do, and the checks we complete before launch.</p>
 <p class="updated">Last updated 24 October 2026. If anything here changes, we'll update this page and say what changed.</p>
-</div>
+<ul class="jump" aria-label="On this page">
+<li><a href="#journey">Where it goes</a></li>
+<li><a href="#suppliers">Who helps us</a></li>
+<li><a href="#never">What we never do</a></li>
+<li><a href="#control">You're in control</a></li>
+<li><a href="#governance">Checks and standards</a></li>
+</ul>
 </section>
 </div>
 
-<section class="section section-tint" aria-labelledby="promises">
+<section class="section band" aria-labelledby="promises">
 <div class="wrap">
 <h2 class="h2" id="promises">Our promises</h2>
-<div class="grid grid-2">
-<div class="feature promise"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>Never sold</h3><p class="soft">We don't sell your conversations, your summaries or anything about you. Not to advertisers, insurers, data brokers or anyone else.</p></div>
-<div class="feature promise"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9z"/></svg>Never used to train AI</h3><p class="soft">Your conversations are used to write your summary and answer your questions. They are never used to train AI, by us or by anyone who helps us.</p></div>
-<div class="feature promise"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>Audio deleted, words kept</h3><p class="soft">The recording only exists long enough to be turned into words. You keep the words and your summary, stored encrypted in your account until you delete them.</p></div>
-<div class="feature promise"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="16.5" cy="9" r="2.6"/><path d="M15.5 14.4c2.4.1 4.3 1.7 4.9 4.6"/></svg>Shared only by you</h3><p class="soft">Your conversation isn't shared with your GP, the NHS, insurers or advertisers. The companies listed below handle it only to run MyScribe. Anyone else sees it only if you share it.</p></div>
+<div class="promises" style="margin-top:28px">
+<div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><h3>Never sold</h3><p class="soft">We don't sell your conversations, your summaries or anything about you. Not to advertisers, insurers, data brokers or anyone else.</p></div>
+<div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9z"/></svg><h3>Never used to train AI</h3><p class="soft">Your conversations are used to write your summary and answer your questions. They are never used to train AI, by us or by anyone who helps us.</p></div>
+<div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg><h3>Audio deleted, words kept</h3><p class="soft">The recording only exists long enough to be turned into words. You keep the words and your summary, stored encrypted in your account until you delete them.</p></div>
+<div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="16.5" cy="9" r="2.6"/><path d="M15.5 14.4c2.4.1 4.3 1.7 4.9 4.6"/></svg><h3>Shared only by you</h3><p class="soft">Your conversation isn't shared with your GP, the NHS, insurers or advertisers. The companies listed below handle it only to run MyScribe. Anyone else sees it only if you share it.</p></div>
 </div>
 </div>
 </section>
 
-<section class="section" aria-labelledby="journey">
+<section class="section" id="journey" aria-labelledby="journey-h">
 <div class="wrap">
-<h2 class="h2" id="journey">Where your conversation goes</h2>
+<h2 class="h2" id="journey-h">Where your conversation goes</h2>
 <p class="section-lead soft">From the moment you press record to the moment you share, step by step.</p>
 <ol class="flow">
 <li>
-<h3>You ask, then record</h3>
+<span class="dot c-coral">1</span>
+<div><h3>You ask, then record</h3>
 <p class="soft">MyScribe opens on the question, so everyone in the room knows. While you talk, the recording stays on your phone.</p>
-<span class="where">On your phone</span>
+<span class="where c-coral">On your phone</span></div>
 </li>
 <li>
-<h3>It's written down</h3>
+<span class="dot c-coral">2</span>
+<div><h3>It's written down</h3>
 <p class="soft">When you press stop, the recording is sent securely to Deepgram, a speech-to-text company, to be turned into words. Deepgram works on it in memory and doesn't store it, and we've opted out of Deepgram using it to improve their models.</p>
-<span class="where">Deepgram, in the EU</span>
+<span class="where c-coral">Deepgram, in the EU</span></div>
 </li>
 <li class="gone">
-<h3>The audio is deleted</h3>
+<span class="dot">3</span>
+<div><h3>The audio is deleted</h3>
 <p class="soft">Once the words are saved, the recording is deleted from your phone. From here on, MyScribe works only with the words.</p>
-<span class="where">Audio gone</span>
+<span class="where">Audio gone</span></div>
 </li>
 <li>
-<h3>The story is written</h3>
+<span class="dot c-sage">4</span>
+<div><h3>The story is written</h3>
 <p class="soft">The words are sent to Google Cloud's Vertex AI to write your summary, and to find the exact words when you use Ask Your Conversation. Google doesn't use them to train its models.</p>
-<span class="where">Google Cloud, UK or EU region</span>
+<span class="where c-sage">Google Cloud, UK or EU region</span></div>
 </li>
 <li>
-<h3>It's kept safely</h3>
+<span class="dot c-lilac">5</span>
+<div><h3>It's kept safely</h3>
 <p class="soft">Your words and summaries are stored encrypted in your account, until you delete them. Questions you ask with Ask Your Conversation aren't saved.</p>
-<span class="where">Google Cloud, London</span>
+<span class="where c-lilac">Google Cloud, London</span></div>
 </li>
 <li>
-<h3>You choose who sees it</h3>
+<span class="dot c-sage">6</span>
+<div><h3>You choose who sees it</h3>
 <p class="soft">Share your summary with a daughter, a partner or whoever helps you. If you don't share it, it stays in your account.</p>
-<span class="where">Only the people you choose</span>
+<span class="where c-sage">Only the people you choose</span></div>
 </li>
 </ol>
-<p class="flow-note soft">This is how MyScribe works at launch. Behind the scenes, AI suppliers can change over time. If we ever change who helps us, or where your words are handled, we'll update this page first.</p>
+<p class="note soft">This is how MyScribe works at launch. Behind the scenes, AI suppliers can change over time. If we ever change who helps us, or where your words are handled, we'll update this page first.</p>
 </div>
 </section>
 
-<section class="section section-tint" aria-labelledby="suppliers">
+<section class="section band" id="suppliers" aria-labelledby="suppliers-h">
 <div class="wrap">
-<h2 class="h2" id="suppliers">Who helps us run MyScribe</h2>
+<h2 class="h2" id="suppliers-h">Who helps us run MyScribe</h2>
 <p class="section-lead soft">MyScribe is made by Opsimath Ltd. These are the companies that handle your information on our behalf, and only on our instructions.</p>
 <div class="table-wrap">
 <table class="ttable">
@@ -166,62 +265,62 @@
 </tbody>
 </table>
 </div>
-<p class="flow-note soft">Your sign-in details are held by Google in the United States, protected by the safeguards UK data protection law requires for transfers. Your conversations and summaries stay in the UK and EU.</p>
+<p class="note soft">Your sign-in details are held by Google in the United States, protected by the safeguards UK data protection law requires for transfers. Your conversations and summaries stay in the UK and EU.</p>
 </div>
 </section>
 
-<section class="section" aria-labelledby="never">
+<section class="section" id="never" aria-labelledby="never-h">
 <div class="wrap">
-<h2 class="h2" id="never">What we will never do</h2>
-<ul class="never">
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Sell your information, or share it for advertising</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Use your conversations to train AI</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Keep the recording of your appointment</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Pass your conversations to the NHS, your GP, insurers or any data platform. They only go where you send them</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Put advertising or tracking tools in the app</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Add anything to what was said. MyScribe doesn't diagnose, advise or recommend treatment</li>
+<h2 class="h2" id="never-h">What we will never do</h2>
+<ul class="never" style="margin-top:28px">
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Sell your information, or share it for advertising</li>
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Use your conversations to train AI</li>
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Keep the recording of your appointment</li>
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Pass your conversations to the NHS, your GP, insurers or any data platform. They only go where you send them</li>
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Put advertising or tracking tools in the app</li>
+<li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Add anything to what was said. MyScribe doesn't diagnose, advise or recommend treatment</li>
 </ul>
 </div>
 </section>
 
-<section class="section section-tint" aria-labelledby="control">
+<section class="section band" id="control" aria-labelledby="control-h">
 <div class="wrap">
-<h2 class="h2" id="control">You're in control</h2>
-<div class="grid grid-2">
-<div class="feature"><h3>Delete a conversation</h3><p class="soft">Delete any conversation and its summary, whenever you like. It's gone from your account and our storage.</p></div>
-<div class="feature"><h3>Delete your account</h3><p class="soft">Delete your account from the app, and everything goes with it: your conversations, your summaries and your sign-in. Any unused credit is lost too, so use it up first if you can.</p></div>
-<div class="feature"><h3>Change your mind</h3><p class="soft">You agree to MyScribe handling your health information when you sign up. You can withdraw that agreement at any time in the app. If you do, your saved conversations are deleted, and you stay signed in with your account and any credit kept.</p></div>
-<div class="feature"><h3>If you stop using MyScribe</h3><p class="soft">If you don't sign in for 12 months, we close your account. We'll email you 30 days and 7 days before, showing your credit balance, and signing in keeps everything. Once an account is closed, its conversations are deleted within 45 days and any unused credit is lost.</p></div>
-<div class="feature"><h3>Ask for a copy</h3><p class="soft">You can ask us for a copy of the information we hold about you, or to correct it, by emailing <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>.</p></div>
+<h2 class="h2" id="control-h">You're in control</h2>
+<div class="control" style="margin-top:28px">
+<div class="ctl"><h3>Delete a conversation</h3><p class="soft">Delete any conversation and its summary, whenever you like. It's gone from your account and our storage.</p></div>
+<div class="ctl"><h3>Delete your account</h3><p class="soft">Delete your account from the app, and everything goes with it: your conversations, your summaries and your sign-in. Any unused credit is lost too, so use it up first if you can.</p></div>
+<div class="ctl"><h3>Change your mind</h3><p class="soft">You agree to MyScribe handling your health information when you sign up. You can withdraw that agreement at any time in the app. If you do, your saved conversations are deleted, and you stay signed in with your account and any credit kept.</p></div>
+<div class="ctl"><h3>If you stop using MyScribe</h3><p class="soft">If you don't sign in for 12 months, we close your account. We'll email you 30 days and 7 days before, showing your credit balance, and signing in keeps everything. Once an account is closed, its conversations are deleted within 45 days and any unused credit is lost.</p></div>
+<div class="ctl"><h3>Ask for a copy</h3><p class="soft">You can ask us for a copy of the information we hold about you, or to correct it, by emailing <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>.</p></div>
+<div class="ctl" style="background:var(--butter)"><h3>18 and over</h3><p>MyScribe is for people aged 18 and over.</p></div>
 </div>
-<p class="flow-note soft">MyScribe is for people aged 18 and over.</p>
 </div>
 </section>
 
-<section class="section" aria-labelledby="governance">
+<section class="section" id="governance" aria-labelledby="governance-h">
 <div class="wrap">
-<h2 class="h2" id="governance">Checks and standards</h2>
+<h2 class="h2" id="governance-h">Checks and standards</h2>
 <p class="section-lead soft">What's in place now, what we complete before launch, and what we complete before MyScribe is used with any NHS organisation.</p>
-<div class="table-wrap">
+<div class="table-wrap" style="border:1px solid var(--line)">
 <table class="ttable">
 <thead><tr><th scope="col">Check</th><th scope="col">What it means</th><th scope="col">Status</th></tr></thead>
 <tbody>
-<tr><th scope="row">Registered company</th><td data-label="What it means">Opsimath Ltd, registered in England and Wales, company number 17461745</td><td data-label="Status"><span class="status status-done">In place</span></td></tr>
-<tr><th scope="row">Clear purpose</th><td data-label="What it means">MyScribe is a memory aid. It writes down and summarises what was said, and doesn't diagnose, advise or recommend treatment, so it isn't a medical device</td><td data-label="Status"><span class="status status-done">In place</span></td></tr>
-<tr><th scope="row">Data protection impact assessment</th><td data-label="What it means">A formal check of the risks to your information, and how we reduce them</td><td data-label="Status"><span class="status status-launch">Before launch</span></td></tr>
-<tr><th scope="row">Information Commissioner's Office</th><td data-label="What it means">Registration with the UK's data protection regulator. We'll add our registration number here</td><td data-label="Status"><span class="status status-launch">Before launch</span></td></tr>
-<tr><th scope="row">Clinical safety (DCB0129)</th><td data-label="What it means">The NHS clinical risk management standard for health software</td><td data-label="Status"><span class="status status-nhs">Before NHS use</span></td></tr>
-<tr><th scope="row">DTAC</th><td data-label="What it means">The NHS Digital Technology Assessment Criteria, covering safety, data protection, security, usability and accessibility</td><td data-label="Status"><span class="status status-nhs">Before NHS use</span></td></tr>
+<tr><th scope="row">Registered company</th><td data-label="What it means">Opsimath Ltd, registered in England and Wales, company number 17461745</td><td data-label="Status"><span class="status s-done">In place</span></td></tr>
+<tr><th scope="row">Clear purpose</th><td data-label="What it means">MyScribe is a memory aid. It writes down and summarises what was said, and doesn't diagnose, advise or recommend treatment, so it isn't a medical device</td><td data-label="Status"><span class="status s-done">In place</span></td></tr>
+<tr><th scope="row">Data protection impact assessment</th><td data-label="What it means">A formal check of the risks to your information, and how we reduce them</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
+<tr><th scope="row">Information Commissioner's Office</th><td data-label="What it means">Registration with the UK's data protection regulator. We'll add our registration number here</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
+<tr><th scope="row">Clinical safety (DCB0129)</th><td data-label="What it means">The NHS clinical risk management standard for health software</td><td data-label="Status"><span class="status s-nhs">Before NHS use</span></td></tr>
+<tr><th scope="row">DTAC</th><td data-label="What it means">The NHS Digital Technology Assessment Criteria, covering safety, data protection, security, usability and accessibility</td><td data-label="Status"><span class="status s-nhs">Before NHS use</span></td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
 
-<section class="section section-tint" id="questions" aria-labelledby="trust-faq">
+<section class="section band" id="questions" aria-labelledby="trust-faq">
 <div class="wrap">
 <h2 class="h2" id="trust-faq">Good questions</h2>
-<div class="faq">
+<div class="faq" style="margin-top:24px">
 <details>
 <summary>Can my GP or the NHS see my conversations?</summary>
 <p class="soft">No. MyScribe isn't connected to your GP record or to any NHS system. If you want your GP to see something, you can share it with them yourself.</p>
@@ -263,6 +362,5 @@
 </div>
 </div>
 </footer>
-<script src="/site.js" defer></script>
 </body>
 </html>
