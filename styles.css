@@ -53,9 +53,10 @@ p{margin:0}
 .section-dark{background:var(--ink);color:#fff}
 .page-intro{padding:72px 0 64px}
 
-/* Hero */
-.hero{display:flex;gap:64px;align-items:center;flex-wrap:wrap;padding:72px 0 96px}
+/* Hero (24 Oct 2026): text sits at the top rather than centred on the tall phone, so the buttons show on the first screen */
+.hero{display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap;padding:40px 0 96px}
 .hero-text{flex:1 1 520px}
+@media (min-width:641px){.hero-text{padding-top:24px}}
 .hero .lead{max-width:34ch;margin-bottom:36px}
 .actions{display:flex;gap:16px;flex-wrap:wrap}
 .hero-phone{flex:0 1 320px;display:flex;justify-content:center;margin:0 auto}
