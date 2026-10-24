@@ -158,6 +158,13 @@
   .hero .lead { max-width: 44ch; margin-bottom: 20px; line-height: 1.5; }
   .hero .soon { margin-top: 10px; }
 }
+/* "Starting with" set apart as an outline pill, hinting more is to come (Oct 2026) */
+.hero .lead { margin-bottom: 12px; }
+.first-up { display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 24px; padding: 5px 14px; border: 1.5px solid var(--ink-soft); border-radius: 999px; font-size: .95rem; font-weight: 600; color: var(--ink-soft); }
+.first-up::after { content: "\2192"; font-weight: 400; opacity: .7; }
+/* Pill and launch date share one row, so the date stays above the fold (Oct 2026) */
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin: 0 0 24px; }
+.hero-meta .first-up, .hero .hero-meta .soon { margin: 0; }
 /* Health first, then every conversation (Oct 2026) */
 .everywhere { max-width: 46rem; }
 .everywhere .h2 { line-height: 1.12; margin-bottom: 20px; text-wrap: balance; }
@@ -184,12 +191,15 @@
 <div class="hero-text">
 <p class="eyebrow">Your personal scribe</p>
 <h1 class="h1">Some conversations really matter. <em class="h1-turn">And they need remembering.</em></h1>
-<p class="lead">MyScribe writes down what was said, with permission, in plain words you can go back and check. Starting with your health appointments.</p>
+<p class="lead">MyScribe writes down what was said, with permission, in plain words you can go back and check.</p>
+<div class="hero-meta">
+<p class="first-up">First up: your health appointments</p>
+<p class="soon">Launching 1 December on iPhone and Android</p>
+</div>
 <div class="actions">
 <a class="btn btn-primary" href="#waitlist">Join the first 108</a>
 <a class="btn btn-outline" href="/how-it-works">See how it works</a>
 </div>
-<p class="soon">Launching 1 December on iPhone and Android</p>
 <ul class="trust trust-row" aria-label="How we look after your conversation">
 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>Never sold, never used to train AI</li>
 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>Audio deleted once it's written down</li>
