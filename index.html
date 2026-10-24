@@ -146,6 +146,13 @@
 @media (max-width: 640px) {
   .site-header .nav .btn { display: none; }
 }
+/* Desktop: lift the hero so the launch date shows above the fold (Oct 2026) */
+@media (min-width: 641px) {
+  .hero { padding-top: 32px; min-height: 0; }
+  .hero .eyebrow { margin-bottom: 18px; }
+  .hero .h1 { font-size: clamp(52px, 5.6vw, 84px); line-height: 1.02; margin-bottom: 20px; }
+  .hero .lead { margin-bottom: 28px; }
+}
 /* Health first, then every conversation (Oct 2026) */
 .everywhere { max-width: 46rem; }
 .everywhere .h2 { line-height: 1.12; margin-bottom: 20px; text-wrap: balance; }
