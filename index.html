@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MyScribe | For every conversation that matters</title>
-<meta name="description" content="Some conversations really matter, and they need remembering. MyScribe writes down what was said, with permission, in plain words you can go back and check. Launching 1 December on iPhone and Android.">
+<meta name="description" content="Some conversations really matter, and they need remembering. MyScribe is an app that records your conversation and writes it down for you, with a plain-words summary so you can go back and check what was said. Launching 1 December on iPhone and Android.">
 <meta property="og:title" content="MyScribe | For every conversation that matters">
-<meta property="og:description" content="Some conversations really matter, and they need remembering. MyScribe writes down what was said, with permission, in plain words you can go back and check. Starting with your health appointments.">
+<meta property="og:description" content="Some conversations really matter, and they need remembering. MyScribe is an app that records your conversation and writes it down for you, with a plain-words summary so you can go back and check what was said. Starting with your health appointments.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1E1F22">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -95,11 +95,12 @@ svg{display:block}
   .hero{grid-template-columns:1.3fr .7fr;gap:48px;align-items:start;padding:20px 0 64px}
   .hero-text{padding-top:12px}
   .h1{font-size:clamp(2.6rem,4.6vw,3.9rem);margin-bottom:18px}
-  .lead{max-width:40ch;font-size:1.18rem;margin-bottom:22px}
+  .lead{max-width:46ch;font-size:1.18rem;margin-bottom:22px;text-wrap:pretty}
   .soon{margin-top:12px}
   .trust{margin-top:28px;padding-top:16px}
   .hero-phone{padding:28px 20px}
   .hero-phone .phone{height:520px}
+  .hero-phone .wave{height:56px;margin-top:8px}
 }
 
 @media (max-width:860px){
@@ -259,16 +260,32 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 .sources{font-size:.85rem;color:var(--muted);max-width:70ch;margin-bottom:20px}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-soft);font-size:.9rem}
 
-/* Logo animation: the two lines write themselves, then the nib arrives */
-.logo-mark .lm-line{stroke-dasharray:1 1;stroke-dashoffset:0}
+/* Logo: the pen writes two lines, then rests (still logo when reduce motion is on) */
+.logo-mark .lm-nib{transform-box:fill-box;transform-origin:0% 100%}
 @media (prefers-reduced-motion:no-preference){
-  .logo-mark .lm-line{stroke-dashoffset:1;opacity:0;animation:lm-draw .55s ease-out forwards}
-  .logo-mark .lm-l1{animation-delay:.15s}
-  .logo-mark .lm-l2{animation-delay:.6s}
-  .logo-mark .lm-nib{opacity:0;transform:translateX(-14px);animation:lm-nib .45s cubic-bezier(.2,.8,.2,1) .95s forwards}
+  .logo-mark .lm-line{stroke-dasharray:1;stroke-dashoffset:1;animation:lm-draw .55s ease-in-out forwards}
+  .logo-mark .lm-l1{animation-delay:.2s}
+  .logo-mark .lm-l2{animation-delay:.85s;animation-duration:.4s}
+  .logo-mark .lm-nib{opacity:0;animation:lm-nib .35s ease-out 1.2s forwards}
 }
-@keyframes lm-draw{0%{opacity:1;stroke-dashoffset:1}100%{opacity:1;stroke-dashoffset:0}}
-@keyframes lm-nib{to{opacity:1;transform:none}}
+@keyframes lm-draw{to{stroke-dashoffset:0}}
+@keyframes lm-nib{from{opacity:0;transform:translate(3px,-3px) scale(.85)}to{opacity:1;transform:none}}
+
+/* Phone demo sequence (from site.js): press, record, words appear, gather, summary */
+.app-rec{transition:transform .25s ease,box-shadow .3s ease}
+.press .app-rec{transform:scale(.95);box-shadow:0 0 0 8px rgba(217,83,63,.16)}
+.rec-time{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:400}
+.live{animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.words{display:flex;flex-direction:column;gap:8px}
+.words span{font-size:14px;opacity:0;transform:translateY(6px);filter:blur(4px);transition:opacity .7s ease,transform .7s ease,filter .7s ease}
+.words span.in{opacity:1;transform:none;filter:none}
+.words.gather span{opacity:0;transform:scale(.6) translateY(40px);filter:blur(8px);transition:all .8s cubic-bezier(.6,0,.4,1)}
+.scene-sum .sum-card,.scene-sum .ask-card,.scene-sum .sum-foot{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+.scene-sum .in{opacity:1!important;transform:none!important}
+@media (prefers-reduced-motion:reduce){.words span{opacity:1;filter:none;transform:none}.scene-sum .sum-card,.scene-sum .ask-card,.scene-sum .sum-foot{opacity:1;transform:none}}
+#waitlist{scroll-margin-top:24px}
+.hero .lead-what{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -299,7 +316,8 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <section class="hero">
 <div class="hero-text">
 <h1 class="h1">Some conversations really matter. <em>And they need remembering.</em></h1>
-<p class="lead">MyScribe writes down what was said, with permission, in plain words you can go back and check. <strong>Starting with your health appointments.</strong></p>
+<p class="lead lead-what">MyScribe is an app that records your conversation and writes it down for you, with a plain-words summary so you can go back and check what was said.</p>
+<p class="lead">Ask first, then tap record. <strong>Starting with your health appointments.</strong></p>
 <div class="actions">
 <a class="btn btn-primary" href="#waitlist">Get early access</a>
 <a class="text-link" href="/how-it-works">See how it works</a>
@@ -318,7 +336,7 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <div class="phone-status"><span>9:41</span><span class="phone-battery"></span></div>
 <p class="phone-app">MyScribe</p>
 <div class="stage">
-<div class="scene is-on">
+<div class="scene scene-ask is-on">
 <p class="ask-hint"><i>→</i>Ask first. You can read this out.</p>
 <p class="q">Do you mind<br>if I record this?</p>
 <p class="q2">Just to help me remember.</p>
@@ -326,13 +344,13 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <span class="app-btn app-not">Not now</span>
 <div class="convos"><span><strong>My conversations</strong><br><small>3 saved</small></span><span>›</span></div>
 </div>
-<div class="scene">
-<p class="rec-status"><span class="live"></span>Recording <span>06:12</span></p>
+<div class="scene scene-rec">
+<p class="rec-status"><span class="live"></span>Recording <span class="rec-time">00:00</span></p>
 <div class="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<p class="words">…and I'd like a blood test in about two weeks…</p>
+<div class="words"><span>…so we'll start you on the new tablet tomorrow…</span><span>…one each morning, with breakfast…</span><span>…and I'd like a blood test in about two weeks…</span><span>…if the cough isn't better in ten days, ring us…</span></div>
 <div class="stop"><span class="stop-btn"><span></span></span><span>Stop</span></div>
 </div>
-<div class="scene">
+<div class="scene scene-sum">
 <p class="meta">Fri 17 Oct · 12 min</p>
 <p class="sum-title">GP appointment</p>
 <div class="sum-card">
@@ -511,17 +529,60 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 </footer>
 
 <script>
-(function(){
-  var panel=document.querySelector('.hero-phone');
-  var scenes=panel?panel.querySelectorAll('.scene'):[];
-  if(!scenes.length||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var i=0;
-  setInterval(function(){
-    scenes[i].classList.remove('is-on');
-    i=(i+1)%scenes.length;
-    scenes[i].classList.add('is-on');
-    panel.setAttribute('data-scene',i);
-  },3800);
+// Get early access: scroll smoothly to the form and put the cursor in the email box
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function goToWaitlist(smooth) {
+    var t = document.getElementById('waitlist');
+    if (!t) return false;
+    t.scrollIntoView({ behavior: smooth && !reduce ? 'smooth' : 'auto', block: 'start' });
+    var input = t.querySelector('input[type="email"]');
+    if (input) input.focus({ preventScroll: true });
+    return true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href="/#waitlist"], a[href="#waitlist"]');
+    if (!a) return;
+    if (goToWaitlist(true)) { e.preventDefault(); history.replaceState(null, '', '#waitlist'); }
+  });
+  if (location.hash === '#waitlist') {
+    var run = function () { goToWaitlist(false); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else window.addEventListener('load', run);
+  }
+})();
+
+// Hero phone: ask, press, record, words appear, gather into the summary
+(function () {
+  var panel = document.querySelector('.hero-phone');
+  if (!panel) return;
+  var ask = panel.querySelector('.scene-ask'), rec = panel.querySelector('.scene-rec'), sum = panel.querySelector('.scene-sum');
+  var words = rec.querySelectorAll('.words span'), wordsBox = rec.querySelector('.words');
+  var parts = sum.querySelectorAll('.sum-card, .ask-card, .sum-foot');
+  var timeEl = rec.querySelector('.rec-time'), timers = [], clock;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+  function show(scene, n) { [ask, rec, sum].forEach(function (s) { s.classList.toggle('is-on', s === scene); }); panel.setAttribute('data-scene', n); }
+  function reset() {
+    timers.forEach(clearTimeout); timers = []; clearInterval(clock);
+    panel.classList.remove('press'); wordsBox.classList.remove('gather');
+    words.forEach(function (w) { w.classList.remove('in'); });
+    parts.forEach(function (p) { p.classList.remove('in'); });
+    timeEl.textContent = '00:00';
+  }
+  function run() {
+    reset(); show(ask, 0);
+    at(2200, function () { panel.classList.add('press'); });
+    at(2700, function () {
+      panel.classList.remove('press'); show(rec, 1);
+      var s = 0; clock = setInterval(function () { s += 7; timeEl.textContent = '0' + Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }, 400);
+    });
+    words.forEach(function (w, i) { at(3300 + i * 1000, function () { w.classList.add('in'); }); });
+    at(7800, function () { clearInterval(clock); wordsBox.classList.add('gather'); });
+    at(8700, function () { show(sum, 2); });
+    parts.forEach(function (p, i) { at(9100 + i * 800, function () { p.classList.add('in'); }); });
+    at(17000, run);
+  }
+  run();
 })();
 </script>
 </body>
