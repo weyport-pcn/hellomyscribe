@@ -192,7 +192,7 @@ svg{display:block}
 <p class="kicker">Trust</p>
 <h1 class="h1">Your conversation, looked after.</h1>
 <p class="lead">It was your conversation, so it's your record. This page sets out, in plain words, where your conversation goes, who helps us run MyScribe, what we will never do, and the checks we complete before launch.</p>
-<p class="updated">Last updated 1 November 2026: added our ICO registration number. If anything here changes, we'll update this page and say what changed.</p>
+<p class="updated">Last updated 2 November 2026: made clear that Deepgram is a US company, explained the legal basis we rely on, and added our transfer checks. If anything here changes, we'll update this page and say what changed.</p>
 <ul class="jump" aria-label="On this page">
 <li><a href="#journey">Where it goes</a></li>
 <li><a href="#suppliers">Who helps us</a></li>
@@ -229,8 +229,8 @@ svg{display:block}
 <li>
 <span class="dot c-coral">2</span>
 <div><h3>It's written down</h3>
-<p class="soft">When you press stop, the recording is sent securely to Deepgram, a speech-to-text company, to be turned into words. Deepgram works on it in memory and doesn't store it, and we've opted out of Deepgram using it to improve their models.</p>
-<span class="where c-coral">Deepgram, in the EU</span></div>
+<p class="soft">When you press stop, the recording is sent securely to Deepgram, a US speech-to-text company, to be turned into words on its servers in the EU. Deepgram works on it in memory and doesn't store it, and we've opted out of Deepgram using it to improve their models. Because Deepgram is a US company, the law treats this as an international transfer, so we put the safeguards UK data protection law requires in place before launch.</p>
+<span class="where c-coral">Deepgram (US company), EU servers</span></div>
 </li>
 <li class="gone">
 <span class="dot">3</span>
@@ -269,14 +269,14 @@ svg{display:block}
 <table class="ttable">
 <thead><tr><th scope="col">Company</th><th scope="col">What they do</th><th scope="col">What they handle</th><th scope="col">Where</th></tr></thead>
 <tbody>
-<tr><th scope="row">Deepgram</th><td data-label="What they do">Turns your recording into words, and reads words aloud when you ask</td><td data-label="What they handle">The recording, and words to be read aloud</td><td data-label="Where">EU</td></tr>
+<tr><th scope="row">Deepgram<small>US company</small></th><td data-label="What they do">Turns your recording into words, and reads words aloud when you ask</td><td data-label="What they handle">The recording, and words to be read aloud</td><td data-label="Where">EU servers</td></tr>
 <tr><th scope="row">Google Cloud<small>Vertex AI</small></th><td data-label="What they do">Writes your summary and finds the exact words for Ask Your Conversation</td><td data-label="What they handle">The words of your conversation</td><td data-label="Where">UK or EU</td></tr>
 <tr><th scope="row">Google Cloud<small>Firestore</small></th><td data-label="What they do">Stores your words and summaries, encrypted</td><td data-label="What they handle">Your saved conversations</td><td data-label="Where">UK (London)</td></tr>
 <tr><th scope="row">Google Firebase<small>Authentication</small></th><td data-label="What they do">Lets you sign in</td><td data-label="What they handle">Your name, email address and how you sign in. Never your conversations</td><td data-label="Where">United States</td></tr>
 </tbody>
 </table>
 </div>
-<p class="note soft">Your sign-in details are held by Google in the United States, protected by the safeguards UK data protection law requires for transfers. Your conversations and summaries stay in the UK and EU.</p>
+<p class="note soft">Your sign-in details are held by Google in the United States, and your recording is handled by Deepgram, a US company, on its EU servers. Both are protected by the safeguards UK data protection law requires for international transfers. Your saved conversations and summaries are stored in the UK.</p>
 </div>
 </section>
 
@@ -318,8 +318,10 @@ svg{display:block}
 <tbody>
 <tr><th scope="row">Registered company</th><td data-label="What it means">Opsimath Ltd, registered in England and Wales, company number 17461745</td><td data-label="Status"><span class="status s-done">In place</span></td></tr>
 <tr><th scope="row">Clear purpose</th><td data-label="What it means">MyScribe is a memory aid. It writes down and summarises what was said, and doesn't diagnose, advise or recommend treatment, so it isn't a medical device</td><td data-label="Status"><span class="status s-done">In place</span></td></tr>
-<tr><th scope="row">Data protection impact assessment</th><td data-label="What it means">A formal check of the risks to your information, and how we reduce them</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
 <tr><th scope="row">Information Commissioner's Office</th><td data-label="What it means">Opsimath Ltd is registered with the UK's data protection regulator. Registration number ZC286535</td><td data-label="Status"><span class="status s-done">In place</span></td></tr>
+<tr><th scope="row">Data protection impact assessment</th><td data-label="What it means">A formal check of the risks to your information, and how we reduce them</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
+<tr><th scope="row">International transfer safeguards</th><td data-label="What it means">The legal protections UK law requires when a US company handles your information, built into our agreement with Deepgram</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
+<tr><th scope="row">Transfer risk assessment</th><td data-label="What it means">A written check that your information stays properly protected when Deepgram, a US company, handles it</td><td data-label="Status"><span class="status s-launch">Before launch</span></td></tr>
 <tr><th scope="row">Clinical safety (DCB0129)</th><td data-label="What it means">The NHS clinical risk management standard for health software</td><td data-label="Status"><span class="status s-nhs">Before NHS use</span></td></tr>
 <tr><th scope="row">DTAC</th><td data-label="What it means">The NHS Digital Technology Assessment Criteria, covering safety, data protection, security, usability and accessibility</td><td data-label="Status"><span class="status s-nhs">Before NHS use</span></td></tr>
 </tbody>
@@ -333,6 +335,10 @@ svg{display:block}
 <h2 class="h2" id="trust-faq">Good questions</h2>
 <div class="faq" style="margin-top:24px">
 <details>
+<summary>What gives MyScribe the right to handle my information?</summary>
+<p class="soft">Your conversations can include health information, which the law gives extra protection. We only handle it with your explicit consent, which you give when you sign up and can withdraw at any time in the app. Our <a href="/privacy">privacy notice</a> sets out the full legal detail.</p>
+</details>
+<details>
 <summary>Can my GP or the NHS see my conversations?</summary>
 <p class="soft">No. MyScribe isn't connected to your GP record or to any NHS system. If you want your GP to see something, you can share it with them yourself.</p>
 </details>
@@ -345,8 +351,8 @@ svg{display:block}
 <p class="soft">AI turns the recording into words, writes the summary, and finds the exact words when you ask a question. Ask Your Conversation never writes its own answer. It only shows you what was actually said.</p>
 </details>
 <details>
-<summary>Why are my sign-in details held in the United States?</summary>
-<p class="soft">We use Google's sign-in service, which holds account details (your name, email address and how you sign in) in the United States. Your conversations and summaries are never held there.</p>
+<summary>Why are US companies involved?</summary>
+<p class="soft">Deepgram, which turns your recording into words, is a US company, though it does this on its servers in the EU. We use Google's sign-in service, which holds account details (your name, email address and how you sign in) in the United States. In both cases, UK law requires safeguards for the transfer, and we put them in place. Your saved conversations and summaries are stored in the UK.</p>
 </details>
 <details>
 <summary>Could any of this change?</summary>
