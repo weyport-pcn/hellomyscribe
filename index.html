@@ -104,20 +104,45 @@ svg{display:block}
   .lead{max-width:46ch;font-size:1.18rem;margin-bottom:22px;text-wrap:pretty}
   .soon{margin-top:12px}
   .trust{margin-top:28px;padding-top:16px}
-  .hero-phone{padding:28px 20px}
+  .hero-phone{padding:28px 20px 14px}
   .hero-phone .phone{height:520px}
   .hero-phone .wave{height:56px;margin-top:8px}
 }
 
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;gap:44px;padding:12px 0 56px}
-  .h1{margin-bottom:18px}
+  /* Mobile: headline, one line, then the phone, so the question is on the first screen.
+     The button and trust lines follow straight after. */
+  .hero{grid-template-columns:1fr;gap:0;padding:8px 0 56px}
+  .hero-text{display:contents}
+  .h1{order:1;margin-bottom:16px}
   .lead{font-size:1.15rem;margin-bottom:24px}
+  .hero .lead-what{order:2;margin-bottom:22px}
+  .hero .lead-ask{display:none}
+  .hero-phone{order:3;padding:20px 16px 14px;border-radius:28px;margin-bottom:28px}
+  .hero-phone .phone{height:488px}
+  .hero-phone .wave{height:40px;margin-top:4px}
+  .hero-phone .words span{font-size:13px}
+  .hero-phone .words span:nth-child(4){display:none}
+  .hero-phone .stop-btn{width:56px;height:56px}
+  .hero-phone .stop-btn span{width:20px;height:20px}
+  .hero-phone .sum-card{padding:12px}
+  .hero-phone .sum-text{font-size:13px}
+  .actions{order:4}
+  .soon{order:5;margin-top:12px}
+  .trust{order:6}
+  .trust-more{order:7;justify-self:start}
   .actions .btn{width:100%}
   .actions .text-link{display:none}
-  .soon{justify-content:center;text-align:center;margin-top:12px}
-  .hero-phone{padding:36px 16px;border-radius:28px}
 }
+
+/* Play and pause for the phone demo (moving content needs a way to stop it) */
+.hero-phone{position:relative}
+.hero-phone .phone{overflow:hidden}
+.demo-toggle{display:flex;align-items:center;gap:7px;margin:12px auto 0;padding:6px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.6);color:var(--ink);font:600 .85rem/1.2 var(--font);cursor:pointer}
+.demo-toggle:hover{background:#fff}
+.demo-toggle svg{width:12px;height:12px}
+.hero-phone.paused *{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.demo-toggle{display:none}}
 
 /* Phone demo */
 .phone{width:290px;max-width:100%;margin:0 auto;border:10px solid var(--ink);border-radius:46px;background:var(--paper);padding:14px 18px 20px;height:560px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px rgba(30,31,34,.4)}
@@ -323,7 +348,7 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <div class="hero-text">
 <h1 class="h1">Your healthcare conversations. <em>Remembered.</em></h1>
 <p class="lead lead-what">Appointments can be overwhelming. MyScribe helps you record, revisit and understand what was said, so you can focus on the conversation, not on remembering every word.</p>
-<p class="lead"><strong>Ask first, then tap record.</strong></p>
+<p class="lead lead-ask"><strong>Ask first, then tap record.</strong></p>
 <div class="actions">
 <a class="btn btn-primary" href="#waitlist">Get early access</a>
 <a class="text-link" href="/how-it-works">See how it works</a>
@@ -337,8 +362,8 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <a class="text-link trust-more" href="/trust">How we look after your conversation</a>
 </div>
 
-<div class="hero-phone" data-scene="0" aria-hidden="true">
-<div class="phone">
+<div class="hero-phone" data-scene="0">
+<div class="phone" aria-hidden="true">
 <div class="phone-status"><span>9:41</span><span class="phone-battery"></span></div>
 <p class="phone-app">MyScribe</p>
 <div class="stage">
@@ -371,6 +396,7 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 </div>
 </div>
 </div>
+<button class="demo-toggle" type="button" aria-label="Pause the demo"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10" rx="1" fill="currentColor"/><rect x="7" y="1" width="3" height="10" rx="1" fill="currentColor"/></svg><span>Pause</span></button>
 </div>
 </section>
 
@@ -558,7 +584,9 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
   }
 })();
 
-// Hero phone: ask, press, record, words appear, gather into the summary
+// Hero phone: ask, press, record, words appear, gather into the summary.
+// Starts only when the phone is on screen, holds the question long enough to read,
+// plays twice, then rests on the question. The button pauses or replays it.
 (function () {
   var panel = document.querySelector('.hero-phone');
   if (!panel) return;
@@ -566,30 +594,55 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
   var words = rec.querySelectorAll('.words span'), wordsBox = rec.querySelector('.words');
   var parts = sum.querySelectorAll('.sum-card, .ask-card, .sum-foot');
   var timeEl = rec.querySelector('.rec-time'), timers = [], clock;
+  var btn = panel.querySelector('.demo-toggle'), label = btn.querySelector('span');
+  var PLAYS = 2, played = 0, playing = false, stopped = false, inView = false;
+  var pauseIcon = btn.querySelector('svg').innerHTML;
+  var playIcon = '<path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/>';
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
   function show(scene, n) { [ask, rec, sum].forEach(function (s) { s.classList.toggle('is-on', s === scene); }); panel.setAttribute('data-scene', n); }
+  function setBtn(text, icon, aria) { label.textContent = text; btn.querySelector('svg').innerHTML = icon; btn.setAttribute('aria-label', aria); }
   function reset() {
     timers.forEach(clearTimeout); timers = []; clearInterval(clock);
     panel.classList.remove('press'); wordsBox.classList.remove('gather');
     words.forEach(function (w) { w.classList.remove('in'); });
     parts.forEach(function (p) { p.classList.remove('in'); });
     timeEl.textContent = '00:00';
+    show(ask, 0);
   }
+  function rest(text) { reset(); playing = false; panel.classList.add('paused'); setBtn(text, playIcon, 'Play the demo'); }
   function run() {
-    reset(); show(ask, 0);
-    at(2200, function () { panel.classList.add('press'); });
-    at(2700, function () {
+    reset(); playing = true; panel.classList.remove('paused'); setBtn('Pause', pauseIcon, 'Pause the demo');
+    var d = played === 0 ? 2300 : 0; // first time round, give people time to read the question
+    at(d + 2200, function () { panel.classList.add('press'); });
+    at(d + 2700, function () {
       panel.classList.remove('press'); show(rec, 1);
       var s = 0; clock = setInterval(function () { s += 7; timeEl.textContent = '0' + Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }, 400);
     });
-    words.forEach(function (w, i) { at(3300 + i * 1000, function () { w.classList.add('in'); }); });
-    at(7800, function () { clearInterval(clock); wordsBox.classList.add('gather'); });
-    at(8700, function () { show(sum, 2); });
-    parts.forEach(function (p, i) { at(9100 + i * 800, function () { p.classList.add('in'); }); });
-    at(17000, run);
+    words.forEach(function (w, i) { at(d + 3300 + i * 1000, function () { w.classList.add('in'); }); });
+    at(d + 7800, function () { clearInterval(clock); wordsBox.classList.add('gather'); });
+    at(d + 8700, function () { show(sum, 2); });
+    parts.forEach(function (p, i) { at(d + 9100 + i * 800, function () { p.classList.add('in'); }); });
+    at(d + 17000, function () {
+      played++;
+      if (played < PLAYS) run(); else { stopped = true; rest('Play again'); }
+    });
   }
-  run();
+
+  btn.addEventListener('click', function () {
+    if (playing) { stopped = true; rest('Play'); }
+    else { stopped = false; played = Math.min(played, PLAYS - 1); run(); }
+  });
+
+  // Only play while the phone is on screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+      if (inView && !playing && !stopped) run();
+      else if (!inView && playing) { reset(); playing = false; }
+    }, { threshold: 0.5 }).observe(panel);
+  } else { run(); }
 })();
 </script>
 </body>
