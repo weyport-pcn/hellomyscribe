@@ -10,9 +10,10 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1E1F22">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap">
 <style>
 /* MyScribe palette: charcoal and pastels (21 Oct 2026).
    coral = recording, sage = summary, mist = Ask Your Conversation,
@@ -120,15 +121,15 @@ svg{display:block}
 
 .status{display:inline-block;font-size:.85rem;font-weight:600;border-radius:999px;padding:4px 12px;white-space:nowrap}
 .s-done{background:var(--sage)}
-.s-launch{background:var(--butter)}
+.s-launch{background:var(--lilac)}
 .s-nhs{background:var(--neutral)}
 
 /* Never list */
 .never{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:60rem}
 @media (max-width:760px){.never{grid-template-columns:1fr}}
 .never li{display:flex;gap:14px;align-items:flex-start;font-size:1.05rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
-.never .x{flex:none;width:28px;height:28px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;margin-top:-1px}
-.never svg{width:14px;height:14px;color:var(--rec)}
+.never .x{flex:none;width:28px;height:28px;border-radius:50%;background:#EEEEEC;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.never svg{width:14px;height:14px;color:var(--ink)}
 
 /* Control */
 .control{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -151,16 +152,6 @@ svg{display:block}
 .footer-next{color:var(--ink-soft);margin:4px 0 16px}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-soft);font-size:.9rem}
 
-/* Logo: the pen writes two lines, then rests (still logo when reduce motion is on) */
-.logo-mark .lm-nib{transform-box:fill-box;transform-origin:0% 100%}
-@media (prefers-reduced-motion:no-preference){
-  .logo-mark .lm-line{stroke-dasharray:1;stroke-dashoffset:1;animation:lm-draw .55s ease-in-out forwards}
-  .logo-mark .lm-l1{animation-delay:.2s}
-  .logo-mark .lm-l2{animation-delay:.85s;animation-duration:.4s}
-  .logo-mark .lm-nib{opacity:0;animation:lm-nib .35s ease-out 1.2s forwards}
-}
-@keyframes lm-draw{to{stroke-dashoffset:0}}
-@keyframes lm-nib{from{opacity:0;transform:translate(3px,-3px) scale(.85)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -168,7 +159,7 @@ svg{display:block}
 
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22" fill="#E6DDF3"/><g transform="translate(50 50) scale(1.15) translate(-45 -49)"><path class="lm-line lm-l1" pathLength="1" d="M19 40H46" fill="none" stroke="#1E1F22" stroke-width="9" stroke-linecap="round"/><path class="lm-line lm-l2" pathLength="1" d="M19 62H37" fill="none" stroke="#1E1F22" stroke-width="9" stroke-linecap="round"/><g class="lm-nib"><path d="M46.5 58.5L57.36 31.61A29 29 0 0 1 73.39 47.64Z" fill="#1E1F22" stroke="#1E1F22" stroke-width="1.2" stroke-linejoin="round"/><path d="M47.7 57.3L57.16 47.84" stroke="#E6DDF3" stroke-width="1.1" stroke-linecap="round"/><circle cx="57.16" cy="47.84" r="2.5" fill="#E6DDF3"/></g></g></svg>MyScribe</a>
+<a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22.37" fill="#E6DDF3"/><path transform="translate(52 58) scale(2.15)" d="M-8 0C-8.4-8.5-5-15.5 4.5-19.5C-0.5-15-1.8-11.5-0.6-8A8 8 0 1 1-8 0Z" fill="#1E1F22"/></svg>MyScribe</a>
 <nav class="nav" aria-label="Main">
 <a href="/how-it-works">How it works</a>
 <a href="/organisations">For organisations</a>
@@ -303,7 +294,7 @@ svg{display:block}
 <div class="ctl"><h3>Change your mind</h3><p class="soft">You agree to MyScribe handling your health information when you sign up. You can withdraw that agreement at any time in the app. If you do, your saved conversations are deleted, and you stay signed in with your account and any credit kept.</p></div>
 <div class="ctl"><h3>If you stop using MyScribe</h3><p class="soft">If you don't sign in for 12 months, we close your account. We'll email you 30 days and 7 days before, showing your credit balance, and signing in keeps everything. Once an account is closed, its conversations are deleted within 45 days and any unused credit is lost.</p></div>
 <div class="ctl"><h3>Ask for a copy</h3><p class="soft">You can ask us for a copy of the information we hold about you, or to correct it, by emailing <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>.</p></div>
-<div class="ctl" style="background:var(--butter)"><h3>18 and over</h3><p>MyScribe is for people aged 18 and over.</p></div>
+<div class="ctl" style="background:var(--lilac)"><h3>18 and over</h3><p>MyScribe is for people aged 18 and over.</p></div>
 </div>
 </div>
 </section>

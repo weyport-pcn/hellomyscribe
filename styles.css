@@ -205,16 +205,6 @@ textarea{min-height:140px;resize:vertical}
 .wrap.grid-2{max-width:944px;margin-left:0;margin-right:auto}
 .wrap.grid-2{margin-left:max(0px,calc((100% - 1120px)/2))}
 @media (max-width:720px){.grid-2{grid-template-columns:1fr}}
-/* Logo: the pen writes two lines, then rests (still logo when reduce motion is on) */
-.logo-mark .lm-nib{transform-box:fill-box;transform-origin:0% 100%}
-@media (prefers-reduced-motion:no-preference){
-  .logo-mark .lm-line{stroke-dasharray:1;stroke-dashoffset:1;animation:lm-draw .55s ease-in-out forwards}
-  .logo-mark .lm-l1{animation-delay:.2s}
-  .logo-mark .lm-l2{animation-delay:.85s;animation-duration:.4s}
-  .logo-mark .lm-nib{opacity:0;animation:lm-nib .35s ease-out 1.2s forwards}
-}
-@keyframes lm-draw{to{stroke-dashoffset:0}}
-@keyframes lm-nib{from{opacity:0;transform:translate(3px,-3px) scale(.85)}to{opacity:1;transform:none}}
 .footer-next{margin:.25rem 0 1rem;opacity:.8}
 
 /* First 108 (22 Oct 2026): banner at the top of every page */
@@ -225,11 +215,11 @@ textarea{min-height:140px;resize:vertical}
 
 /* Buttons on dark sections: white, so they don't vanish into the charcoal */
 .section-dark .btn-primary{background:#fff;color:var(--ink)}
-.section-dark .btn-primary:hover{background:var(--butter);color:var(--ink)}
+.section-dark .btn-primary:hover{background:var(--lilac);color:var(--ink)}
 .section-dark a:not(.btn){color:#fff}
 
 /* Waitlist: the first 108 */
-.waitlist-count{display:inline-block;font-family:var(--display);font-weight:600;font-size:15px;background:var(--butter);color:var(--ink);border-radius:999px;padding:4px 14px;margin-bottom:16px}
+.waitlist-count{display:inline-block;font-family:var(--display);font-weight:600;font-size:15px;background:var(--lilac);color:var(--ink);border-radius:999px;padding:4px 14px;margin-bottom:16px}
 
 /* Share box (waitlist thank-you page) */
 .share-box{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}

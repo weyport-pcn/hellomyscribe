@@ -10,9 +10,10 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1E1F22">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap">
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-2xMqHdNtrrsRjwaFG2nD4.js"></script>
 <script>
@@ -106,8 +107,8 @@ svg{display:block}
 .bar{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:16px}
 .ico{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
 .ask-hint{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-soft);margin-top:auto}
-.ask-hint i,.lbl i{width:22px;height:22px;border-radius:50%;background:var(--butter);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:11px}
-.q{font-weight:700;font-size:28px;line-height:1.07;letter-spacing:-.025em}
+.ask-hint i,.lbl i{width:22px;height:22px;border-radius:50%;background:#EEEEEC;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:11px}
+.q{font-weight:900;font-size:28px;line-height:1.07;letter-spacing:-.02em}
 .q2{font-size:13.5px;color:var(--ink-soft);margin-top:-4px;margin-bottom:6px}
 .app-btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;min-height:46px;font-size:14px;font-weight:600}
 .app-rec{background:var(--coral)}
@@ -123,18 +124,24 @@ svg{display:block}
 .lbl i{background:#fff}
 .txt{font-size:13.5px;line-height:1.5}
 .u{text-decoration:underline;text-decoration-color:rgba(30,31,34,.45);text-decoration-thickness:1.5px;text-underline-offset:3px}
-.hi{background:var(--butter);border-radius:4px;padding:0 2px}
+.hi{background:#fff;border-radius:4px;padding:0 2px}
 .exact{background:#fff;border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.45;margin-top:10px}
 .exact small{display:block;font-size:11px;font-weight:700;margin-bottom:2px}
 .line{font-size:12.5px;line-height:1.45;padding:6px 0;border-top:1px solid var(--line)}
 .line:first-of-type{border-top:0}
 .line b{display:block;font-size:11px}
-.flag{background:var(--butter);border-bottom:2px dashed #A86A12;border-radius:3px;padding:0 2px}
-.flag-note{font-size:11px;font-weight:600;color:#7A4D0D;margin-top:4px}
+.flag{background:var(--butter);border-radius:3px;padding:0 2px}
+.flag-note{font-size:11px;font-weight:600;color:var(--ink);margin-top:4px}
 .foot{font-size:10.5px;line-height:1.4;color:var(--ink-soft);margin-top:auto}
 .tabs{display:flex;justify-content:space-around;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px}
-.tabs span{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
-.tabs .on{background:var(--ink);color:#fff}
+.tabs span{flex:1;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:4px 0;font-size:10px;font-weight:600;color:var(--ink-soft)}
+.tabs span i{font-style:normal;font-size:12px}
+.tabs .on{color:var(--ink);font-weight:700}
+.pill{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 9px;font-size:10.5px;font-weight:500}
+.mins{margin-top:6px}
+.ico-gap{width:30px}
+.askbox{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1.5px solid var(--ink);border-radius:14px;padding:6px 6px 6px 12px;font-size:12px;color:var(--muted);margin-top:auto;box-shadow:0 2px 8px rgba(30,31,34,.08)}
+.askbox b{background:var(--mist);color:var(--ink);border-radius:999px;padding:5px 10px;font-size:11px}
 .bub{border-radius:16px;padding:10px 13px;max-width:90%;font-size:13px;line-height:1.42}
 .you{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px;font-weight:600}
 .ans{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
@@ -168,12 +175,12 @@ svg{display:block}
 .faq details p{margin-top:10px;max-width:62ch}
 .faq-more{margin-top:20px}
 
-.cta{max-width:640px;margin:0 auto;background:var(--coral);border-radius:28px;padding:44px 36px}
+.cta{max-width:640px;margin:0 auto;background:var(--lilac);border-radius:28px;padding:44px 36px}
 @media (max-width:640px){.cta{padding:32px 22px}.cta .btn{width:100%}}
 .cta h2{font-size:clamp(1.6rem,3.4vw,2.1rem);letter-spacing:-.025em;line-height:1.15;margin:0 0 12px;text-wrap:balance}
 .cta .soft{margin-bottom:24px}
 .soon{margin-top:14px;font-size:.95rem;color:var(--ink);display:flex;align-items:center;gap:8px}
-.soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rec);flex:none}
+.soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
 
 .site-footer{padding:56px 0 40px;border-top:1px solid var(--line);font-size:.95rem;margin-top:80px}
 .footer-tag{font-weight:700;font-size:1.2rem;letter-spacing:-.015em}
@@ -181,16 +188,6 @@ svg{display:block}
 .sources{font-size:.85rem;color:var(--muted);max-width:70ch;margin-bottom:20px}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-soft);font-size:.9rem}
 
-/* Logo: the pen writes two lines, then rests (still logo when reduce motion is on) */
-.logo-mark .lm-nib{transform-box:fill-box;transform-origin:0% 100%}
-@media (prefers-reduced-motion:no-preference){
-  .logo-mark .lm-line{stroke-dasharray:1;stroke-dashoffset:1;animation:lm-draw .55s ease-in-out forwards}
-  .logo-mark .lm-l1{animation-delay:.2s}
-  .logo-mark .lm-l2{animation-delay:.85s;animation-duration:.4s}
-  .logo-mark .lm-nib{opacity:0;animation:lm-nib .35s ease-out 1.2s forwards}
-}
-@keyframes lm-draw{to{stroke-dashoffset:0}}
-@keyframes lm-nib{from{opacity:0;transform:translate(3px,-3px) scale(.85)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -198,7 +195,7 @@ svg{display:block}
 
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22" fill="#E6DDF3"/><g transform="translate(50 50) scale(1.15) translate(-45 -49)"><path class="lm-line lm-l1" pathLength="1" d="M19 40H46" fill="none" stroke="#1E1F22" stroke-width="9" stroke-linecap="round"/><path class="lm-line lm-l2" pathLength="1" d="M19 62H37" fill="none" stroke="#1E1F22" stroke-width="9" stroke-linecap="round"/><g class="lm-nib"><path d="M46.5 58.5L57.36 31.61A29 29 0 0 1 73.39 47.64Z" fill="#1E1F22" stroke="#1E1F22" stroke-width="1.2" stroke-linejoin="round"/><path d="M47.7 57.3L57.16 47.84" stroke="#E6DDF3" stroke-width="1.1" stroke-linecap="round"/><circle cx="57.16" cy="47.84" r="2.5" fill="#E6DDF3"/></g></g></svg>MyScribe</a>
+<a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22.37" fill="#E6DDF3"/><path transform="translate(52 58) scale(2.15)" d="M-8 0C-8.4-8.5-5-15.5 4.5-19.5C-0.5-15-1.8-11.5-0.6-8A8 8 0 1 1-8 0Z" fill="#1E1F22"/></svg>MyScribe</a>
 <nav class="nav" aria-label="Main">
 <a href="/how-it-works" aria-current="page">How it works</a>
 <a href="/organisations">For organisations</a>
@@ -240,7 +237,8 @@ svg{display:block}
 <div class="panel p-coral" aria-hidden="true">
 <div class="phone">
 <div class="status"><span>9:41</span><span class="batt"></span></div>
-<div class="bar"><span>MyScribe</span><span class="ico">○</span></div>
+<div class="bar"><span>MyScribe</span><span class="pill">⚙ Settings</span></div>
+<p class="mins"><span class="pill">◷ 74 min left · <b>Top up ›</b></span></p>
 <p class="ask-hint"><i>→</i>Ask first. You can read this out.</p>
 <p class="q">Do you mind<br>if I record this?</p>
 <p class="q2">Just to help me remember.</p>
@@ -263,7 +261,7 @@ svg{display:block}
 <div class="panel p-sage" aria-hidden="true">
 <div class="phone">
 <div class="status"><span>9:41</span><span class="batt"></span></div>
-<div class="bar"><span class="ico">‹</span><span>MyScribe</span><span class="ico">↑</span></div>
+<div class="bar"><span class="ico">‹</span><span>MyScribe</span><span class="ico-gap"></span></div>
 <p class="meta">Fri 17 Oct · 12 min</p>
 <p class="title">GP appointment</p>
 <div class="card c-sage">
@@ -277,7 +275,7 @@ svg{display:block}
 <p class="line"><b>You</b>Is that the <span class="flag">Lansoprazole</span> one?</p>
 <p class="flag-note">Not heard clearly. Worth checking.</p>
 </div>
-<div class="tabs" style="margin-top:auto"><span class="on">▤</span><span>≡</span><span>⌕</span></div>
+<div class="tabs" style="margin-top:auto"><span class="on" style="background:var(--sage)"><i>≡</i>Summary</span><span><i>⌕</i>Ask</span><span><i>⇪</i>Share</span></div>
 </div>
 </div>
 </section>
@@ -290,21 +288,21 @@ svg{display:block}
 <p class="lead">Come back to it whenever you need to.</p>
 <div class="sub"><h3><i style="background:var(--mist)"></i>Ask Your Conversation</h3><p class="soft">Not sure what you heard? Ask. MyScribe shows you the exact words that were said, so you can check the finer details, like medicine names and doses. It never writes its own answer.</p></div>
 <div class="sub"><h3><i style="background:var(--sage)"></i>Share</h3><p class="soft">Send the summary to a partner, a carer or family. They don't need the app to read it.</p>
-<div class="share-mock" aria-hidden="true"><div class="msg"><strong>Summary of a conversation on Fri 17 Oct</strong>Dr Patel said she'd like you to have a blood test in about two weeks, and to ring the surgery if the cough isn't better in ten days.<p class="ps">Want this after your own appointments? Free at hellomyscribe.com</p></div></div>
+<div class="share-mock" aria-hidden="true"><div class="msg"><strong>Margaret's conversation, 17 October. Written down by MyScribe.</strong>Dr Patel said she'd like Margaret to have a blood test in about two weeks, and to ring the surgery if her cough isn't better in ten days.<p class="ps">Want this for your own conversations? MyScribe is free to download, and you pay only for what you use: hellomyscribe.com/shared</p></div></div>
 </div>
 </div>
 <div class="panel p-mist" aria-hidden="true">
 <div class="phone">
 <div class="status"><span>9:41</span><span class="batt"></span></div>
-<div class="bar"><span class="ico">‹</span><span>MyScribe</span><span class="ico">↑</span></div>
+<div class="bar"><span class="ico">‹</span><span>MyScribe</span><span class="ico-gap"></span></div>
 <p class="meta">GP appointment · Fri 17 Oct</p>
 <p class="title">Ask Your Conversation</p>
 <p class="bub you">Was it one tablet or two?</p>
-<div class="bub ans"><small>Speaker 2, 04:38</small>“…one each morning, with breakfast…”<span class="play">Read aloud</span></div>
+<div class="bub ans"><small>Speaker 2, 04:38</small>“…one each morning, with breakfast…”<span class="play">Read it to me</span></div>
 <p class="bub you">When do I ring if it's no better?</p>
-<div class="bub ans"><small>Speaker 2, 09:51</small>“…if the cough isn't better in ten days, ring us…”<span class="play">Read aloud</span></div>
-<div class="card c-mist" style="padding:8px;margin-top:auto"><p class="input" style="margin:0">Ask about this conversation <b>→</b></p></div>
-<div class="tabs"><span>▤</span><span>≡</span><span class="on">⌕</span></div>
+<div class="bub ans"><small>Speaker 2, 09:51</small>“…if the cough isn't better in ten days, ring us…”<span class="play">Read it to me</span></div>
+<div class="askbox"><span>Type or say a question</span><b>Speak</b></div>
+<div class="tabs"><span><i>≡</i>Summary</span><span class="on" style="background:var(--mist)"><i>⌕</i>Ask</span><span><i>⇪</i>Share</span></div>
 </div>
 </div>
 </section>
