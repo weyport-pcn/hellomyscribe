@@ -183,7 +183,7 @@ svg{display:block}
 <p class="kicker">Trust</p>
 <h1 class="h1">Your conversation, looked after.</h1>
 <p class="lead">It was your conversation, so it's your record. This page sets out, in plain words, where your conversation goes, who helps us run MyScribe, what we will never do, and the checks we complete before launch.</p>
-<p class="updated">Last updated 2 November 2026: made clear that Deepgram is a US company and what technical records it keeps, explained the legal basis we rely on, and added our transfer safeguards, now signed. If anything here changes, we'll update this page and say what changed.</p>
+<p class="updated">Last updated 17 November 2026: added crash reports, notifications, speaking a question, paying through Apple, and what happens to your minutes and sign-in when you delete your account. If anything here changes, we'll update this page and say what changed.</p>
 <ul class="jump" aria-label="On this page">
 <li><a href="#journey">Where it goes</a></li>
 <li><a href="#suppliers">Who helps us</a></li>
@@ -220,7 +220,7 @@ svg{display:block}
 <li>
 <span class="dot c-coral">2</span>
 <div><h3>It's written down</h3>
-<p class="soft">When you press stop, the recording is sent securely to Deepgram, a US speech-to-text company, to be turned into words on its servers in the EU. Deepgram works on it in memory and doesn't store it, and we've opted out of Deepgram using it to improve their models. Deepgram keeps basic technical records about each request, like when it was made, for up to 90 days, but never what was said. Because Deepgram is a US company, the law treats this as an international transfer, and our signed agreement with Deepgram includes the safeguards UK data protection law requires.</p>
+<p class="soft">When you press stop, the recording is sent securely to Deepgram, a US speech-to-text company, to be turned into words on its servers in the EU. Deepgram works on it in memory and doesn't store it, and we've opted out of Deepgram using it to improve their models. Deepgram keeps basic technical records about each request, like when it was made and the internet address it came from, for up to 90 days, but never what was said. Because Deepgram is a US company, the law treats this as an international transfer, and our signed agreement with Deepgram includes the safeguards UK data protection law requires.</p>
 <span class="where c-coral">Deepgram (US company), EU servers</span></div>
 </li>
 <li class="gone">
@@ -238,13 +238,13 @@ svg{display:block}
 <li>
 <span class="dot c-lilac">5</span>
 <div><h3>It's kept safely</h3>
-<p class="soft">Your words and summaries are stored encrypted in your account, until you delete them. Questions you ask with Ask Your Conversation aren't saved.</p>
+<p class="soft">Your words and summaries are stored encrypted in your account, until you delete them. Questions you ask with Ask Your Conversation aren't saved. If you speak a question rather than type it, Deepgram turns it into words in the same way, and the audio is deleted straight away.</p>
 <span class="where c-lilac">Google Cloud, London</span></div>
 </li>
 <li>
 <span class="dot c-sage">6</span>
 <div><h3>You choose who sees it</h3>
-<p class="soft">Share your summary with a daughter, a partner or whoever helps you. If you don't share it, it stays in your account.</p>
+<p class="soft">Share your summary with a daughter, a partner or whoever helps you. It goes as plain text through your phone's own share options, and they don't need MyScribe to read it. Once it's shared, we can't take it back. If you don't share it, it stays in your account.</p>
 <span class="where c-sage">Only the people you choose</span></div>
 </li>
 </ol>
@@ -260,14 +260,16 @@ svg{display:block}
 <table class="ttable">
 <thead><tr><th scope="col">Company</th><th scope="col">What they do</th><th scope="col">What they handle</th><th scope="col">Where</th></tr></thead>
 <tbody>
-<tr><th scope="row">Deepgram<small>US company</small></th><td data-label="What they do">Turns your recording into words, and reads words aloud when you ask</td><td data-label="What they handle">The recording, and words to be read aloud</td><td data-label="Where">EU servers</td></tr>
+<tr><th scope="row">Deepgram<small>US company</small></th><td data-label="What they do">Turns your recording, and any question you speak, into words, and reads words aloud when you ask</td><td data-label="What they handle">The recording, spoken questions, and words to be read aloud</td><td data-label="Where">EU servers</td></tr>
 <tr><th scope="row">Google Cloud<small>Vertex AI</small></th><td data-label="What they do">Writes your summary and finds the exact words for Ask Your Conversation</td><td data-label="What they handle">The words of your conversation</td><td data-label="Where">UK or EU</td></tr>
 <tr><th scope="row">Google Cloud<small>Firestore</small></th><td data-label="What they do">Stores your words and summaries, encrypted</td><td data-label="What they handle">Your saved conversations</td><td data-label="Where">UK (London)</td></tr>
 <tr><th scope="row">Google Firebase<small>Authentication</small></th><td data-label="What they do">Lets you sign in</td><td data-label="What they handle">Your name, email address and how you sign in. Never your conversations</td><td data-label="Where">United States</td></tr>
+<tr><th scope="row">Google Firebase<small>Crashlytics</small></th><td data-label="What they do">Tells us when the app crashes or something fails, so we can fix it</td><td data-label="What they handle">Technical details only: the error, app version, phone model and iOS version, with a random code for the app on your phone. Never your conversations or who you are</td><td data-label="Where">Google's global services, kept for 90 days</td></tr>
 </tbody>
 </table>
 </div>
 <p class="note soft">Your sign-in details are held by Google in the United States, and your recording is handled by Deepgram, a US company, on its EU servers. Both are protected by the safeguards UK data protection law requires for international transfers. Your saved conversations and summaries are stored in the UK.</p>
+<p class="note soft">When you buy minutes, you pay Apple through the App Store. Apple handles the payment under its own terms, and we never see your card details.</p>
 </div>
 </section>
 
@@ -290,9 +292,9 @@ svg{display:block}
 <h2 class="h2" id="control-h">You're in control</h2>
 <div class="control" style="margin-top:28px">
 <div class="ctl"><h3>Delete a conversation</h3><p class="soft">Delete any conversation and its summary, whenever you like. It's gone from your account and our storage.</p></div>
-<div class="ctl"><h3>Delete your account</h3><p class="soft">Delete your account from the app, and everything goes with it: your conversations, your summaries and your sign-in. Any unused credit is lost too, so use it up first if you can.</p></div>
-<div class="ctl"><h3>Change your mind</h3><p class="soft">You agree to MyScribe handling your health information when you sign up. You can withdraw that agreement at any time in the app. If you do, your saved conversations are deleted, and you stay signed in with your account and any credit kept.</p></div>
-<div class="ctl"><h3>If you stop using MyScribe</h3><p class="soft">If you don't sign in for 12 months, we close your account. We'll email you 30 days and 7 days before, showing your credit balance, and signing in keeps everything. Once an account is closed, its conversations are deleted within 45 days and any unused credit is lost.</p></div>
+<div class="ctl"><h3>Delete your account</h3><p class="soft">Delete your account from the app, and everything goes with it: your conversations, your summaries and your sign-in. Minutes you bought go to Gifted Minutes, on MyScribe, for someone who can't afford to record a conversation that matters. Free welcome minutes are removed. We keep one thing: a one-way code made from your sign-in, which can't be turned back into your details, only to stop free minutes being claimed twice.</p></div>
+<div class="ctl"><h3>Change your mind</h3><p class="soft">You agree to MyScribe handling your health information when you sign up. You can withdraw that agreement at any time in the app. If you do, your saved conversations are deleted, and you stay signed in with your account and your minutes kept.</p></div>
+<div class="ctl"><h3>If you stop using MyScribe</h3><p class="soft">If you don't sign in for 12 months, we close your account. We'll email you 30 days and 7 days before, showing your minutes balance, and signing in keeps everything. Once an account is closed, its conversations are deleted within 45 days, and any minutes you bought go to Gifted Minutes, on MyScribe.</p></div>
 <div class="ctl"><h3>Ask for a copy</h3><p class="soft">You can ask us for a copy of the information we hold about you, or to correct it, by emailing <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>.</p></div>
 <div class="ctl" style="background:var(--lilac)"><h3>18 and over</h3><p>MyScribe is for people aged 18 and over.</p></div>
 </div>
@@ -338,6 +340,14 @@ svg{display:block}
 <p class="soft">We don't read your conversations. They're stored encrypted, and access is limited to keeping the service running safely, for example fixing a fault you've asked us to look at.</p>
 </details>
 <details>
+<summary>Does MyScribe track how I use it?</summary>
+<p class="soft">No. There's no analytics, advertising or tracking in the app. We use Firebase Crashlytics to find and fix crashes. Crash reports contain technical details only, never your conversations or who you are. Our servers also keep basic technical records, like when a request was made, which are deleted automatically and never include what was said.</p>
+</details>
+<details>
+<summary>Do notifications show what was said?</summary>
+<p class="soft">No. When your summary is ready, the notification just says so, with no words from your conversation. It's made on your phone itself, not sent through Apple or Google.</p>
+</details>
+<details>
 <summary>Why is AI involved at all?</summary>
 <p class="soft">AI turns the recording into words, writes the summary, and finds the exact words when you ask a question. Ask Your Conversation never writes its own answer. It only shows you what was actually said.</p>
 </details>
@@ -347,7 +357,7 @@ svg{display:block}
 </details>
 <details>
 <summary>Could any of this change?</summary>
-<p class="soft">If we ever need to change how your information is handled, we'll tell you first, and update this page, so you can take a copy or delete it before anything changes.</p>
+<p class="soft">If we ever need to change how your information is handled, we'll tell you first, and update this page, so you can decide what to do, including deleting your conversations, before anything changes.</p>
 </details>
 <details>
 <summary>How do I raise a concern?</summary>
