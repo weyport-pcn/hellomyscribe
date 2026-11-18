@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support | MyScribe</title>
+<meta name="description" content="Get help with MyScribe: how to contact us, and answers to common questions about recording, summaries, minutes and your account.">
+<meta property="og:title" content="Trust | MyScribe">
+<meta property="og:description" content="Get help with MyScribe: how to contact us, and answers to common questions about recording, summaries, minutes and your account.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E1F22">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap">
+<style>
+/* MyScribe palette: charcoal and pastels (21 Oct 2026).
+   coral = recording, sage = summary, mist = Ask Your Conversation,
+   lilac = My conversations, butter = unclear or highlighted words. */
+:root{
+  --ink:#1E1F22; --ink-soft:#45474C; --muted:#76787D;
+  --paper:#FAFAF8; --line:#E6E6E2; --neutral:#F0F0ED;
+  --coral:#F6D9CF; --rec:#D9533F;
+  --sage:#DCEBD3; --mist:#D6E6EE; --lilac:#E6DDF3; --butter:#F6EBB5;
+  --font:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px; --gutter:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+p{margin:0}
+a{color:inherit}
+svg{display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.soft{color:var(--ink-soft)}
+.text-link,.soft a,td a{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:#C9C9C4}
+.text-link:hover,.soft a:hover{text-decoration-color:var(--ink)}
+
+/* Header (same as home) */
+.site-header{padding:18px 0}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.5rem;letter-spacing:-.02em;text-decoration:none}
+.logo-mark{width:36px;height:36px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary span,.menu summary span::before,.menu summary span::after{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;position:relative;content:""}
+.menu summary span::before{position:absolute;top:-7px}
+.menu summary span::after{position:absolute;top:7px}
+.menu[open] summary{background:var(--neutral)}
+.menu-panel{position:absolute;right:0;top:52px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;min-width:220px;box-shadow:0 12px 30px rgba(0,0,0,.08);z-index:5}
+.menu-panel a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:500}
+.menu-panel a:hover{background:var(--neutral)}
+.menu-panel a[aria-current]{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.nav{display:none}.menu{display:block}}
+
+/* Intro */
+.intro{padding:40px 0 64px;max-width:46rem}
+.kicker{font-size:.95rem;font-weight:600;color:var(--ink-soft);margin-bottom:16px}
+.h1{font-size:clamp(2.4rem,5.8vw,4rem);line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 22px;text-wrap:balance}
+.lead{font-size:1.2rem;line-height:1.55;color:var(--ink-soft);max-width:52ch}
+.updated{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.92rem;color:var(--ink-soft);background:var(--neutral);border-radius:999px;padding:8px 16px}
+.updated::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+.jump{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.95rem}
+.jump a{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:#C9C9C4}
+@media (max-width:640px){.intro{padding:16px 0 48px}.lead{font-size:1.1rem}.updated{border-radius:16px}}
+
+.section{padding:80px 0;scroll-margin-top:12px}
+@media (max-width:640px){.section{padding:60px 0}}
+.band{background:var(--neutral)}
+.h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:0 0 16px;text-wrap:balance}
+.section-lead{max-width:56ch;font-size:1.12rem;margin-bottom:32px}
+.note{max-width:62ch;margin-top:28px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.band .note{border-color:transparent}
+
+/* Promises */
+.promises{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.promises{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.promises{grid-template-columns:1fr}}
+.promise{background:#fff;border-radius:22px;padding:26px}
+.promise svg{width:26px;height:26px;margin-bottom:16px}
+.promise h3{font-size:1.2rem;letter-spacing:-.015em;margin:0 0 8px}
+
+/* Data flow */
+.flow{list-style:none;margin:0;padding:0;max-width:50rem}
+.flow li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:0 20px;padding-bottom:30px}
+.flow li:last-child{padding-bottom:0}
+.flow li::after{content:"";position:absolute;left:21px;top:48px;bottom:4px;width:2px;background:var(--line)}
+.flow li:last-child::after{display:none}
+.dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:var(--neutral)}
+.flow h3{font-size:1.25rem;letter-spacing:-.015em;margin:8px 0 6px}
+.flow p{max-width:60ch}
+.where{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.85rem;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--neutral)}
+.c-coral{background:var(--coral)} .c-sage{background:var(--sage)} .c-lilac{background:var(--lilac)} .c-mist{background:var(--mist)}
+.gone .dot{background:#fff;border:2px dashed #BDBDB7;color:var(--muted)}
+.gone .where{background:#fff;border:1.5px dashed #BDBDB7;color:var(--muted)}
+
+/* Tables */
+.table-wrap{overflow-x:auto;background:#fff;border-radius:22px;padding:8px 24px}
+.ttable{width:100%;border-collapse:collapse;font-size:1rem}
+.ttable th,.ttable td{text-align:left;vertical-align:top;padding:16px 16px 16px 0;border-top:1px solid var(--line)}
+.ttable thead th{border-top:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:14px;padding-bottom:10px}
+.ttable tbody th{font-weight:700}
+.ttable small{display:block;font-weight:500;color:var(--ink-soft);margin-top:2px}
+@media (max-width:680px){
+  .table-wrap{padding:4px 20px}
+  .ttable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ttable,.ttable tbody,.ttable tr,.ttable th,.ttable td{display:block;width:100%}
+  .ttable tr{border-top:1px solid var(--line);padding:16px 0}
+  .ttable tbody tr:first-child{border-top:0}
+  .ttable th,.ttable td{border:0;padding:3px 0}
+  .ttable td[data-label]::before{content:attr(data-label) ": ";font-weight:600;color:var(--muted)}
+}
+
+.status{display:inline-block;font-size:.85rem;font-weight:600;border-radius:999px;padding:4px 12px;white-space:nowrap}
+.s-done{background:var(--sage)}
+.s-launch{background:var(--lilac)}
+.s-nhs{background:var(--neutral)}
+
+/* Never list */
+.never{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:60rem}
+@media (max-width:760px){.never{grid-template-columns:1fr}}
+.never li{display:flex;gap:14px;align-items:flex-start;font-size:1.05rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.never .x{flex:none;width:28px;height:28px;border-radius:50%;background:#EEEEEC;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.never svg{width:14px;height:14px;color:var(--ink)}
+
+/* Control */
+.control{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:960px){.control{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.control{grid-template-columns:1fr}}
+.ctl{background:#fff;border-radius:22px;padding:26px}
+.ctl h3{font-size:1.2rem;letter-spacing:-.015em;margin:0 0 8px}
+
+.faq{max-width:46rem}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.12rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;font-size:1.4rem;line-height:1;color:var(--muted)}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{margin-top:10px;max-width:62ch}
+
+.site-footer{padding:56px 0 40px;border-top:1px solid var(--line);font-size:.95rem}
+.footer-tag{font-weight:700;font-size:1.2rem;letter-spacing:-.015em}
+.footer-next{color:var(--ink-soft);margin:4px 0 16px}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink-soft);font-size:.9rem}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+<div class="wrap">
+<a class="logo" href="/"><svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22.37" fill="#E6DDF3"/><path transform="translate(52 58) scale(2.15)" d="M-8 0C-8.4-8.5-5-15.5 4.5-19.5C-0.5-15-1.8-11.5-0.6-8A8 8 0 1 1-8 0Z" fill="#1E1F22"/></svg>MyScribe</a>
+<nav class="nav" aria-label="Main">
+<a href="/how-it-works">How it works</a>
+<a href="/organisations">For organisations</a>
+<a href="/about">About</a>
+</nav>
+<details class="menu">
+<summary aria-label="Menu"><span></span></summary>
+<div class="menu-panel">
+<a href="/how-it-works">How it works</a>
+<a href="/organisations">For organisations</a>
+<a href="/about">About</a>
+<a href="/trust">Trust</a>
+</div>
+</details>
+</div>
+</header>
+
+<main id="main">
+<div class="wrap">
+<section class="intro">
+<p class="kicker">Support</p>
+<h1 class="h1">How can we help?</h1>
+<p class="lead">Answers to common questions about MyScribe, and how to get in touch if you need us.</p>
+</section>
+</div>
+
+<section class="section band" aria-labelledby="contact-h">
+<div class="wrap">
+<h2 class="h2" id="contact-h">Get in touch</h2>
+<p class="section-lead soft">Email <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a> and we'll get back to you as soon as we can.</p>
+<div class="control">
+<div class="ctl"><h3>Tell us what happened</h3><p class="soft">Say what you were doing, what you expected and what happened instead. It helps to include your phone model and, if you can, the MyScribe version.</p></div>
+<div class="ctl"><h3>Please don't send your conversation</h3><p class="soft">To keep your information private, please don't paste your conversation, summary or any health details into an email. Describe the problem in general words instead.</p></div>
+<div class="ctl" style="background:var(--coral)"><h3>Need medical help?</h3><p>MyScribe can't give medical advice. If you're unwell, contact your GP practice or call NHS 111. In an emergency, call 999.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="questions" aria-labelledby="faq-h">
+<div class="wrap">
+<h2 class="h2" id="faq-h">Common questions</h2>
+<div class="faq" style="margin-top:24px">
+<details>
+<summary>How do I record a conversation?</summary>
+<p class="soft">Open MyScribe and ask the question on the screen out loud: "Do you mind if I record this? Just to help me remember." If everyone agrees, tap "Yes, start recording". When the conversation ends, tap stop. MyScribe writes down what was said and makes your summary.</p>
+</details>
+<details>
+<summary>What if the other person says no?</summary>
+<p class="soft">Tap "Not now" and put your phone away, so it's clear you're not recording.</p>
+</details>
+<details>
+<summary>Something in my summary doesn't look right</summary>
+<p class="soft">Every sentence in the summary links back to the moment it came from, so you can check the exact words in the full conversation. Words MyScribe wasn't sure of are highlighted. If something important is unclear, check with the person you spoke with. MyScribe doesn't include medicine names or doses, so always confirm these with your prescriber or pharmacist.</p>
+</details>
+<details>
+<summary>The wrong person is shown as speaking</summary>
+<p class="soft">MyScribe works out who said what from the recording, and it can sometimes get this wrong, especially in short conversations. The words themselves are still there. If it keeps happening, let us know at <a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>.</p>
+</details>
+<details>
+<summary>How do minutes work?</summary>
+<p class="soft">MyScribe is free to download, with some free minutes to start. After that, you buy minutes when you need them. There's no subscription. Your balance is shown in the app.</p>
+</details>
+<details>
+<summary>How do I get a refund for minutes I bought?</summary>
+<p class="soft">Payments are handled by Apple, so refunds are too. You can ask for one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+</details>
+<details>
+<summary>How do I delete a conversation?</summary>
+<p class="soft">Open the conversation in My conversations and choose delete. It's removed from your account and our storage.</p>
+</details>
+<details>
+<summary>How do I delete my account?</summary>
+<p class="soft">Go to the Account screen in the app and choose to delete your account. Your conversations, summaries and sign-in are deleted. Any minutes you bought go to Gifted Minutes, on MyScribe. Our <a href="/trust">Trust page</a> explains exactly what happens.</p>
+</details>
+<details>
+<summary>Who can see my conversations?</summary>
+<p class="soft">Only you, and anyone you choose to share a summary with. MyScribe isn't connected to your GP or the NHS, and we don't read your conversations. Our <a href="/trust">Trust page</a> sets out where your information goes.</p>
+</details>
+<details>
+<summary>Who can use MyScribe?</summary>
+<p class="soft">MyScribe is for people aged 18 and over in the UK. It's available on iPhone first, with Android to follow.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap">
+<p class="footer-tag">For every conversation that matters.</p>
+<p class="footer-next">Starting with healthcare. Built for every conversation.</p>
+<div class="footer-links">
+<span>MyScribe is made by Opsimath Ltd, registered in England and Wales, company number 17461745</span>
+<a href="mailto:hello@hellomyscribe.com">hello@hellomyscribe.com</a>
+<a href="/trust">Trust</a>
+<a href="/standard">Patient Recording Standard</a>
+<a href="/privacy">Privacy</a>
+<a href="/support">Support</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
