@@ -183,7 +183,7 @@ svg{display:block}
 <p class="kicker">Trust</p>
 <h1 class="h1">Your conversation, looked after.</h1>
 <p class="lead">It was your conversation, so it's your record. This page sets out, in plain words, where your conversation goes, who helps us run MyScribe, what we will never do, and the checks we complete before launch.</p>
-<p class="updated">Last updated 17 November 2026: added crash reports, notifications, speaking a question, paying through Apple, and what happens to your minutes and sign-in when you delete your account. If anything here changes, we'll update this page and say what changed.</p>
+<p class="updated">Last updated 18 November 2026: your summary is now written in London, and names are removed automatically when you share a summary. If anything here changes, we'll update this page and say what changed.</p>
 <ul class="jump" aria-label="On this page">
 <li><a href="#journey">Where it goes</a></li>
 <li><a href="#suppliers">Who helps us</a></li>
@@ -233,7 +233,7 @@ svg{display:block}
 <span class="dot c-sage">4</span>
 <div><h3>The story is written</h3>
 <p class="soft">The words are sent to Google Cloud's Vertex AI to write your summary, and to find the exact words when you use Ask Your Conversation. Google doesn't use them to train its models.</p>
-<span class="where c-sage">Google Cloud, UK or EU region</span></div>
+<span class="where c-sage">Google Cloud, London</span></div>
 </li>
 <li>
 <span class="dot c-lilac">5</span>
@@ -244,7 +244,7 @@ svg{display:block}
 <li>
 <span class="dot c-sage">6</span>
 <div><h3>You choose who sees it</h3>
-<p class="soft">Share your summary with a daughter, a partner or whoever helps you. It goes as plain text through your phone's own share options, and they don't need MyScribe to read it. Once it's shared, we can't take it back. If you don't share it, it stays in your account.</p>
+<p class="soft">Share your summary with a daughter, a partner or whoever helps you. It goes as plain text through your phone's own share options, and they don't need MyScribe to read it. Names are removed automatically, but please check it before you send it. Once it's shared, we can't take it back. If you don't share it, it stays in your account.</p>
 <span class="where c-sage">Only the people you choose</span></div>
 </li>
 </ol>
@@ -261,7 +261,7 @@ svg{display:block}
 <thead><tr><th scope="col">Company</th><th scope="col">What they do</th><th scope="col">What they handle</th><th scope="col">Where</th></tr></thead>
 <tbody>
 <tr><th scope="row">Deepgram<small>US company</small></th><td data-label="What they do">Turns your recording, and any question you speak, into words, and reads words aloud when you ask</td><td data-label="What they handle">The recording, spoken questions, and words to be read aloud</td><td data-label="Where">EU servers</td></tr>
-<tr><th scope="row">Google Cloud<small>Vertex AI</small></th><td data-label="What they do">Writes your summary and finds the exact words for Ask Your Conversation</td><td data-label="What they handle">The words of your conversation</td><td data-label="Where">UK or EU</td></tr>
+<tr><th scope="row">Google Cloud<small>Vertex AI</small></th><td data-label="What they do">Writes your summary and finds the exact words for Ask Your Conversation</td><td data-label="What they handle">The words of your conversation</td><td data-label="Where">UK (London)</td></tr>
 <tr><th scope="row">Google Cloud<small>Firestore</small></th><td data-label="What they do">Stores your words and summaries, encrypted</td><td data-label="What they handle">Your saved conversations</td><td data-label="Where">UK (London)</td></tr>
 <tr><th scope="row">Google Firebase<small>Authentication</small></th><td data-label="What they do">Lets you sign in</td><td data-label="What they handle">Your name, email address and how you sign in. Never your conversations</td><td data-label="Where">United States</td></tr>
 <tr><th scope="row">Google Firebase<small>Crashlytics</small></th><td data-label="What they do">Tells us when the app crashes or something fails, so we can fix it</td><td data-label="What they handle">Technical details only: the error, app version, phone model and iOS version, with a random code for the app on your phone. Never your conversations or who you are</td><td data-label="Where">Google's global services, kept for 90 days</td></tr>
@@ -378,6 +378,7 @@ svg{display:block}
 <a href="/trust">Trust</a>
 <a href="/standard">Patient Recording Standard</a>
 <a href="/privacy">Privacy</a>
+<a href="/support">Support</a>
 </div>
 </div>
 </footer>
