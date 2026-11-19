@@ -280,6 +280,7 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 .field{display:flex;gap:10px;flex-wrap:wrap}
 .field input{flex:1 1 220px;min-height:54px;border:1.5px solid var(--ink);border-radius:999px;padding:0 20px;font:inherit;background:#fff}
 .field .btn{flex:0 0 auto}
+.name-input{display:block;width:100%;min-height:54px;border:1.5px solid var(--ink);border-radius:999px;padding:0 20px;font:inherit;background:#fff;margin-bottom:18px}
 @media (max-width:640px){.field .btn{width:100%}}
 .phone-pick{border:0;margin:0 0 20px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .phone-pick legend{font-weight:600;margin-bottom:8px;padding:0;width:100%}
@@ -534,12 +535,14 @@ h3{font-size:1.3rem;letter-spacing:-.015em;margin:0 0 8px}
 <label><input type="radio" name="phone" value="iPhone" required> iPhone</label>
 <label><input type="radio" name="phone" value="Android"> Android</label>
 </fieldset>
+<label for="first-name">First name</label>
+<input class="name-input" id="first-name" name="first_name" type="text" autocomplete="given-name" placeholder="What should we call you?" required>
 <label for="email">Email address</label>
 <div class="field">
 <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
 <button class="btn btn-primary" type="submit">Get early access</button>
 </div>
-<p class="form-note">We'll only use your email to tell you about MyScribe. <a href="/privacy">Privacy</a></p>
+<p class="form-note">We'll only use your name and email to tell you about MyScribe. <a href="/privacy">Privacy</a></p>
 </form>
 </div>
 <p class="org-line">Work in a GP practice, PCN, ICB, charity or council? <a href="/organisations">See MyScribe for organisations</a>, including <a href="/organisations#gifted-minutes">Gifted Minutes</a>.</p>
